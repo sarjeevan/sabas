@@ -44,11 +44,11 @@
   <header id="header" class="header fixed-top d-flex align-items-center" style="background-color:#402424">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="" class=" d-flex align-items-center m-0">
-        <img src="../assets/img/SABAS.png" alt="sabas" class="m-0"  height="80">
-        <span class="d-none d-lg-block"></span>
+     
+        <img src="../assets/img/SABAS W PNG.png" alt="sabas"  height="80">
+        <span class="d-none d-lg-block" bg-light></span>
       </a>
-      <i class="bi bi-list toggle-sidebar-btn"></i>
+      <i class="bi bi-list toggle-sidebar-btn "></i>
     </div><!-- End Logo -->
 
     
@@ -68,12 +68,12 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
            <!-- <img src="../assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">-->
-            <span class="d-none d-md-block dropdown-toggle ps-2 text-white">K. Anderson</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2 text-white">SA.Sarjeevan</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
+              <h6>Sarjeevan</h6>
               <span>Admin</span>
             </li>
             <li>
@@ -126,14 +126,14 @@
   </header><!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar">
+  <aside id="sidebar" class="sidebar" style="background-color:#402424">
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link" href="index.html"  style="background-color:#402424">
           <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
+          <span class="text-white">Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
@@ -222,51 +222,51 @@
       <!--<li class="nav-heading">Pages</li>-->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" href=""  style="background-color:#402424">
           <i class="bi bi-person"></i>
-          <span>Profile</span>
+          <span class="text-white">Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a class="nav-link collapsed" href=""  style="background-color:#402424">
           <i class="bi bi-question-circle"></i>
-          <span>F.A.Q</span>
+          <span class="text-white">F.A.Q</span>
         </a>
       </li><!-- End F.A.Q Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a class="nav-link collapsed" href=""  style="background-color:#402424">
           <i class="bi bi-envelope"></i>
-          <span>Contact</span>
+          <span class="text-white">Contact</span>
         </a>
       </li><!-- End Contact Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a class="nav-link collapsed" href=""  style="background-color:#402424">
           <i class="bi bi-card-list"></i>
-          <span>Register</span>
+          <span class="text-white">Register</span>
         </a>
       </li><!-- End Register Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a class="nav-link collapsed" href=""  style="background-color:#402424">
           <i class="bi bi-box-arrow-in-right"></i>
-          <span>Login</span>
+          <span class="text-white">Login</span>
         </a>
       </li><!-- End Login Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-error-404.html">
+        <a class="nav-link collapsed" href=""  style="background-color:#402424">
           <i class="bi bi-dash-circle"></i>
-          <span>Error 404</span>
+          <span class="text-white">Error 404</span>
         </a>
       </li><!-- End Error 404 Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-blank.html">
+        <a class="nav-link collapsed" href=""  style="background-color:#402424">
           <i class="bi bi-file-earmark"></i>
-          <span>Blank</span>
+          <span class="text-white">Blank</span>
         </a>
       </li><!-- End Blank Page Nav -->
 

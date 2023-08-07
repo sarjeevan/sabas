@@ -428,7 +428,7 @@
   .header .search-form input {
     border: 0;
     font-size: 14px;
-    color: #012970;
+    color: #ffffff;
     border: 1px solid rgba(1, 41, 112, 0.2);
     padding: 7px 38px 7px 8px;
     border-radius: 3px;
@@ -684,7 +684,7 @@
     align-items: center;
     font-size: 15px;
     font-weight: 600;
-    color: #4154f1;
+    color: #ffffff;
     transition: 0.3;
     background: #f6f9ff;
     padding: 10px 15px;
@@ -694,11 +694,11 @@
   .sidebar-nav .nav-link i {
     font-size: 16px;
     margin-right: 10px;
-    color: #4154f1;
+    color: white;
   }
   
   .sidebar-nav .nav-link.collapsed {
-    color: #012970;
+    color:white;
     background: #fff;
   }
   
@@ -707,12 +707,12 @@
   }
   
   .sidebar-nav .nav-link:hover {
-    color: #4154f1;
+    color: white;
     background: #f6f9ff;
   }
   
   .sidebar-nav .nav-link:hover i {
-    color: #4154f1;
+    color: white;
   }
   
   .sidebar-nav .nav-link .bi-chevron-down {
