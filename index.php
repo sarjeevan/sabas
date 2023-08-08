@@ -11,6 +11,51 @@
 </head>
 
 <body>
+    <?php 
+    if(isset($_GET['submit'])){
+    $servername='localhost';
+    $username='root';
+    $password='';
+    $dbname='sabas';
+    $user=$_GET['username'];
+    $pass=$_GET['password'];
+    echo $pass;
+    //die();
+    $conn=mysqli_connect($servername,$username,$password,$dbname);
+   
+    $sql="SELECT * FROM users WHERE username='$user' ";
+    $result=mysqli_query($conn,$sql);
+    global $row;
+    
+    if(mysqli_num_rows($result)>0){
+        
+        $row=mysqli_fetch_assoc($result);
+var_dump($row);
+
+        if($row['password']==$pass){
+        
+            session_start();
+            $_SESSION['username']=$user;
+
+            //based on user type, redirect to corresponding section
+            $type=$row['usertype'];
+            
+            header("Location: $type/index.php");
+    
+        }else{
+            echo  "Invalid Password";
+           //0 header("Location:index.php");
+        }
+    }else{
+        echo "Invalid Username";
+    }
+   
+    
+}
+    
+    
+    
+    ?>
     <main>
         <div class="container">
 
@@ -37,7 +82,7 @@
                                         <p class="text-center small">Enter your username & password to login</p>
                                     </div>
 
-                                    <form class="row g-3 needs-validation" novalidate>
+                                    <form class="row g-3 needs-validation" action="index.php" method="GET" novalidate>
 
                                         <div class="col-12">
                                             <label for="yourUsername" class="form-label">Username</label>
@@ -63,7 +108,7 @@
                       </div>
                     </div>-->
                                         <div class="col-12">
-                                            <button class="btn btn-primary w-100" type="submit">Login</button>
+                                            <button class="btn btn-primary w-100" type="submit" name="submit" onclick="validate()">Login</button>
                                         </div>
                                         <!-- <div class="col-12">
                       <p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>
@@ -89,7 +134,18 @@
 
         </div>
     </main><!-- End #main -->
+<script>
+    function validate(){
+        var username=document.getElementById('yourUsername').value;
+        var password=document.getElementById('yourPassword').value;
+        if(!username){
+            alert("please enter your username");
+        }else if(!password){
+            alert("please enter your password");
 
+        }
+    }
+</script>
 
 </body>
 
