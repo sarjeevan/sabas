@@ -2,16 +2,16 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+ <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <title>Sabas</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="../assets/img/favicon.png" rel="icon">
-  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<!-- Favicons -->
+  <link href="../assets/img/SABAS.png" rel="icon">
+  <!--<link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -67,7 +67,7 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-           <!-- <img src="../assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">-->
+            <img src="../assets/img/man.png" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2 text-white">SA.Sarjeevan</span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -222,53 +222,53 @@
       <!--<li class="nav-heading">Pages</li>-->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href=""  style="background-color:#402424">
-          <i class="bi bi-person"></i>
-          <span class="text-white">Profile</span>
+        <a class="nav-link collapsed" href="index.html"  style="background-color:#402424">
+        <i class="bi bi-arrow-left-right"></i>
+          <span class="text-white">Intend</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a class="nav-link collapsed" href=""  style="background-color:#402424">
           <i class="bi bi-question-circle"></i>
           <span class="text-white">F.A.Q</span>
         </a>
-      </li><!-- End F.A.Q Page Nav -->
+      </li>--><!-- End F.A.Q Page Nav -->
 
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a class="nav-link collapsed" href=""  style="background-color:#402424">
           <i class="bi bi-envelope"></i>
           <span class="text-white">Contact</span>
         </a>
-      </li><!-- End Contact Page Nav -->
+      </li>--><!-- End Contact Page Nav -->
 
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a class="nav-link collapsed" href=""  style="background-color:#402424">
           <i class="bi bi-card-list"></i>
           <span class="text-white">Register</span>
         </a>
-      </li><!-- End Register Page Nav -->
+      </li>--><!-- End Register Page Nav -->
 
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a class="nav-link collapsed" href=""  style="background-color:#402424">
           <i class="bi bi-box-arrow-in-right"></i>
           <span class="text-white">Login</span>
         </a>
-      </li><!-- End Login Page Nav -->
+      </li>--><!-- End Login Page Nav -->
 
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a class="nav-link collapsed" href=""  style="background-color:#402424">
           <i class="bi bi-dash-circle"></i>
           <span class="text-white">Error 404</span>
         </a>
-      </li><!-- End Error 404 Page Nav -->
+      </li>--><!-- End Error 404 Page Nav -->
 
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a class="nav-link collapsed" href=""  style="background-color:#402424">
           <i class="bi bi-file-earmark"></i>
           <span class="text-white">Blank</span>
         </a>
-      </li><!-- End Blank Page Nav -->
+      </li>--><!-- End Blank Page Nav -->
 
     </ul>
 
@@ -278,12 +278,6 @@
 
     <div class="pagetitle">
       <h1>Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
     </div><!-- End Page Title -->
 
   <!-- End Sales Card -->
