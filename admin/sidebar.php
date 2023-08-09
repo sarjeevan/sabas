@@ -95,9 +95,9 @@
   <!--<li class="nav-heading">Pages</li>-->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="index.html"  style="background-color:#402424">
-    <i class="bi bi-arrow-left-right"></i>
-      <span class="text-white">Intend</span>
+    <a class="nav-link collapsed" href="users.php"  style="background-color:#402424">
+    <i class="bi bi-people bi-lg" style="font-size:20px;"  ></i>
+      <span class="text-white">Users</span>
     </a>
   </li><!-- End Profile Page Nav -->
 

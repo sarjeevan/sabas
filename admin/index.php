@@ -1,21 +1,30 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+  header("Location:../index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
- <meta charset="utf-8">
+  <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Sabas</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-<!-- Favicons -->
+  <!-- Favicons -->
   <link href="../assets/img/SABAS.png" rel="icon">
   <!--<link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -39,6 +48,7 @@
 </head>
 
 <body>
+ 
 
   <!-- ======= Header ======= -->
 
@@ -58,44 +68,44 @@
       <h1>Dashboard</h1>
     </div><!-- End Page Title -->
 
-  <!-- End Sales Card -->
+    <!-- End Sales Card -->
 
-            <!-- Revenue Card -->
-            <!-- End Revenue Card -->
+    <!-- Revenue Card -->
+    <!-- End Revenue Card -->
 
-            <!-- Customers Card -->
-          <!-- End Customers Card -->
+    <!-- Customers Card -->
+    <!-- End Customers Card -->
 
-            <!-- Reports -->
-          <!-- End Reports -->
+    <!-- Reports -->
+    <!-- End Reports -->
 
-            <!-- Recent Sales -->
-          <!-- End Recent Sales -->
+    <!-- Recent Sales -->
+    <!-- End Recent Sales -->
 
-            <!-- Top Selling -->
-          <!-- End Top Selling -->
+    <!-- Top Selling -->
+    <!-- End Top Selling -->
 
-          </div>
-        </div><!-- End Left side columns -->
+    </div>
+    </div><!-- End Left side columns -->
 
-        <!-- Right side columns -->
-        <!--<div class="col-lg-4">-->
+    <!-- Right side columns -->
+    <!--<div class="col-lg-4">-->
 
-          <!-- Recent Activity -->
-          <!-- End Recent Activity -->
+    <!-- Recent Activity -->
+    <!-- End Recent Activity -->
 
-          <!-- Budget Report -->
-          <!-- End Budget Report -->
+    <!-- Budget Report -->
+    <!-- End Budget Report -->
 
-          <!-- Website Traffic -->
-          <!-- End Website Traffic -->
+    <!-- Website Traffic -->
+    <!-- End Website Traffic -->
 
-          <!-- News & Updates Traffic -->
-          <!-- End News & Updates -->
+    <!-- News & Updates Traffic -->
+    <!-- End News & Updates -->
 
-        </div><!-- End Right side columns -->
+    </div><!-- End Right side columns -->
 
-      </div>
+    </div>
     </section>
 
   </main><!-- End #main -->
@@ -106,7 +116,8 @@
 
   <!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
