@@ -4,7 +4,7 @@
 <ul class="sidebar-nav" id="sidebar-nav">
 
   <li class="nav-item">
-    <a class="nav-link" href="index.html"  style="background-color:#402424">
+    <a class="nav-link" href="intend.php"  style="background-color:#402424">
       <i class="bi bi-grid"></i>
       <span class="text-white">Dashboard</span>
     </a>
@@ -95,7 +95,7 @@
   <!--<li class="nav-heading">Pages</li>-->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="index.html"  style="background-color:#402424">
+    <a class="nav-link collapsed" href="intend.php"  style="background-color:#402424">
     <i class="bi bi-arrow-left-right"></i>
       <span class="text-white">Intend</span>
     </a>

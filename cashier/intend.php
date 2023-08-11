@@ -222,12 +222,14 @@
 
 
             <!--<li class="nav-heading">Pages</li>-->
-
+           
             <li class="nav-item">
                 <a class="nav-link collapsed" href="intend.php" style="background-color:#402424">
                     <i class="bi bi-arrow-left-right"></i>
                     <span class="text-white">Intend</span>
                 </a>
+                
+                
             </li><!-- End Profile Page Nav -->
 
             <!--<li class="nav-item">
@@ -275,41 +277,28 @@
         </ul>
 
     </aside><!-- End Sidebar-->
-
     <main id="main" class="main">
-
         <div class="pagetitle">
-            <h1>Intend</h1>
+            <h1>Intend History</h1>
         </div><!-- End Page Title -->
+        <div class="text-end mb-2">
+        <a href="addintend.php" class="btn text-white pt-0 pb-0 float-right" style="background-color:#402424">Add</a>
+        </div>
         <table class="table table-striped">
             <tr>
-                <th>S No</th>
-                <th>Branch</th>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Rate</th>
-                <th>Ordered Date</th>
-                <th>Delievered Rate</th>
+                <th>Order Id</th>
+                <th>To</th>
+                <th>Status</th>
             </tr>
             <tr>
-                <td>1</td>
-                <td>Paramathi Road</td>
-                <td>Samosa</td>
-                <td>50</td>
-                <td>15</td>
-                <td>08-08-2023</td>
-                <td>09-08-2023</td>
+                <td>P1</td>
+                <td>Branch</td>
+                <td>Pending</td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Mohanur Road</td>
-                <td>Sandwich</td>
-                <td>30</td>
-                <td>60</td>
-                <td>08-08-2023</td>
-                <td>09-08-2023</td>
-            </tr>
+  
         </table>
+        
+        
 
         <!-- End Sales Card -->
 

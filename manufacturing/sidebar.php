@@ -4,11 +4,24 @@
 <ul class="sidebar-nav" id="sidebar-nav">
 
   <li class="nav-item">
-    <a class="nav-link" href="index.html"  style="background-color:#402424">
-      <i class="bi bi-grid"></i>
-      <span class="text-white">Dashboard</span>
+    <a class="nav-link" href="orders.php"  style="background-color:#402424">
+    <i class="bi bi-receipt"></i>
+      <span class="text-white">Orders</span>
     </a>
-  </li><!-- End Dashboard Nav -->
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="orders.php"  style="background-color:#402424">
+    <i class="bi bi-check2-circle"></i>
+      <span class="text-white">Orders Done</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="orders.php"  style="background-color:#402424">
+    <i class="bi bi-hourglass-split"></i>
+      <span class="text-white">Orders Pending</span>
+    </a>
+  </li>
+  <!-- End Dashboard Nav -->
 
  <!-- <li class="nav-item">
     <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
@@ -94,12 +107,12 @@
  
   <!--<li class="nav-heading">Pages</li>-->
 
-  <li class="nav-item">
+ <!-- <li class="nav-item">
     <a class="nav-link collapsed" href="intend.php"  style="background-color:#402424">
     <i class="bi bi-arrow-left-right"></i>
       <span class="text-white">Intend</span>
     </a>
-  </li><!-- End Profile Page Nav -->
+  </li>--><!-- End Profile Page Nav -->
 
   <!--<li class="nav-item">
     <a class="nav-link collapsed" href=""  style="background-color:#402424">

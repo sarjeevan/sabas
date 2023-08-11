@@ -2,20 +2,22 @@
 <html lang="en">
 
 <head>
- <meta charset="utf-8">
+  <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Sabas</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-<!-- Favicons -->
+  <!-- Favicons -->
   <link href="../assets/img/SABAS.png" rel="icon">
   <!--<link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -44,62 +46,125 @@
   <?php include 'header.php'; ?>
   <!-- End Header -->
 
-  <?php include 'sidebar.php';?>
+  <?php include 'sidebar.php'; ?>
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
-    </div><!-- End Page Title -->
+      <h1>Orders:</h1><br>
+      </div><!-- End Page Title -->
+      <div class="text-end pb-3">
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search.." title="Type in barcode number  ">
+</div>
 
-  <!-- End Sales Card -->
+        <table id="myTable" class="table table-bordered">
+        <tr>
+          <th>Barcode No</th>
+          <th>Branch</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Delievery Date</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Paramathi Road</td>
+          <td>Samosa</td>
+          <td>200</td>
+          <td>10-08-2023<td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Mohanur Road</td>
+          <td>Blackforest Cake</td>
+          <td>30</td>
+          <td>10-08-2023<td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Salem Road</td>
+          <td>Cutlet</td>
+          <td>100</td>
+          <td>10-08-2023<td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Puffs</td>
+          <td>Tiruchengode Road</td>
+          <td>150</td>
+          <td>10-08-2023<td>
+        </tr>
 
-            <!-- Revenue Card -->
-            <!-- End Revenue Card -->
+      </table>
+      <script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 1; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
 
-            <!-- Customers Card -->
-          <!-- End Customers Card -->
+      <!-- End Sales Card -->
 
-            <!-- Reports -->
-          <!-- End Reports -->
+      <!-- Revenue Card -->
+      <!-- End Revenue Card -->
 
-            <!-- Recent Sales -->
-          <!-- End Recent Sales -->
+      <!-- Customers Card -->
+      <!-- End Customers Card -->
 
-            <!-- Top Selling -->
-          <!-- End Top Selling -->
+      <!-- Reports -->
+      <!-- End Reports -->
 
-          </div>
-        </div><!-- End Left side columns -->
+      <!-- Recent Sales -->
+      <!-- End Recent Sales -->
 
-        <!-- Right side columns -->
-        <!--<div class="col-lg-4">-->
+      <!-- Top Selling -->
+      <!-- End Top Selling -->
 
-          <!-- Recent Activity -->
-          <!-- End Recent Activity -->
+    </div>
+    </div><!-- End Left side columns -->
 
-          <!-- Budget Report -->
-          <!-- End Budget Report -->
+    <!-- Right side columns -->
+    <!--<div class="col-lg-4">-->
 
-          <!-- Website Traffic -->
-          <!-- End Website Traffic -->
+    <!-- Recent Activity -->
+    <!-- End Recent Activity -->
 
-          <!-- News & Updates Traffic -->
-          <!-- End News & Updates -->
+    <!-- Budget Report -->
+    <!-- End Budget Report -->
 
-        </div><!-- End Right side columns -->
+    <!-- Website Traffic -->
+    <!-- End Website Traffic -->
 
-      </div>
+    <!-- News & Updates Traffic -->
+    <!-- End News & Updates -->
+
+    </div><!-- End Right side columns -->
+
+    </div>
     </section>
 
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
 
-  <?php include 'footer.php';  ?>
+  <?php include 'footer.php'; ?>
 
- <!-- End Footer -->
+  <!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>

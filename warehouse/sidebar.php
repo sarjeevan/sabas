@@ -96,8 +96,8 @@
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="index.html"  style="background-color:#402424">
-    <i class="bi bi-arrow-left-right"></i>
-      <span class="text-white">Intend</span>
+    <i class="bi bi-house"></i>
+      <span class="text-white">Warehouse</span>
     </a>
   </li><!-- End Profile Page Nav -->
 

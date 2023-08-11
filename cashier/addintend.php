@@ -57,13 +57,67 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Cashier</h1><br>
+      <h1>Add Intent</h1><br>
 
       
     </div><!-- End Page Title -->
 
-    <!-- End Sales Card -->
+    <!-- End Sales Card --><form>
+    Products:<input type="text" id="myInput" placeholder="Product" title="Type in the required product"></input>
+    Quantity:<input type="text" placeholder="Quantity" title="Type in the required quantity"></input>
+ <button class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424">Add</button></form>
 
+
+        <table id="myTable" class="table table-striped">
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+            </tr>
+            <tr>
+                <td>Samosa</td>
+                <td>200</td>
+            </tr>
+            <tr>
+                <td>Puffs</td>
+                <td>150</td>
+            </tr>
+            <tr>
+                <td>Cutlet</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>Sandwich</td>
+                <td>75</td>
+            </tr>
+            <tr>
+                <td>Roll</td>
+                <td>50</td>
+            </tr>
+  
+        </table>
+    
+        
+      <script>
+/*function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}*/
+</script>
+    
     </div>
     </div><!-- End Left side columns -->
 
