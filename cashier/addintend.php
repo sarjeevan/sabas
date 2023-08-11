@@ -63,9 +63,15 @@
     </div><!-- End Page Title -->
 
     <!-- End Sales Card -->
-    Products:<input type="text" id="myInput" placeholder="Product" title="Type in the required product"></input>
-    Quantity:<input type="text" placeholder="Quantity" title="Type in the required quantity"></input>
- <button class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424">Add</button>
+    <label class="display-6">Products:</label><input type="text" id="products" placeholder="Product" title="Type in the required product"></input>
+    <label>Quantity:</label><input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
+ <button class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424" onclick="myFunction()">Add</button>
+ <script>
+ 
+ document.getElementById("products").value;
+ alert("Product")
+
+ </script>
 
 
         <table id="myTable" class="table table-striped">
