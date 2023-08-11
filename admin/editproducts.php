@@ -55,21 +55,20 @@ if (!isset($_SESSION['username'])) {
     $dbname = 'sabas';
     $id = $_GET['ID'];
     $conn = mysqli_connect($servername, $username, $password, $dbname);
-    $sql = "SELECT * FROM users WHERE ID=$id ";
+    $sql = "SELECT * FROM products WHERE ID=$id ";
 
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
     if (isset($_POST['submit_btn'])) {
 
-        $user = $_POST['user'];
-        $pass = $_POST['pass'];
-        $branch = $_POST['branch'];
-        $type = $_POST['type'];
-        $dname = $_POST['dname'];
+        $code = $_POST['code'];
+        $pname = $_POST['pname'];
+        $quantity = $_POST['quantity'];
+        
 
-        $sql = "UPDATE users SET username='$user',password='$pass',branch='$branch',usertype='$type',display_name='$dname' WHERE ID=$id";
+        $sql = "UPDATE products SET code='$code',product_name='$pname',quantity='$quantity' WHERE ID=$id";
         if (mysqli_query($conn, $sql)) {
-            header("location:users.php");
+            header("location:products.php");
         } else {
             echo "error in update";
         }
@@ -98,42 +97,27 @@ if (!isset($_SESSION['username'])) {
         <div class="row">
             <div class="w-75 mx-auto ">
                 <form method="POST" action="">
-                    <!--<div class="form-group ">
-                       <label for="id">ID:</label>
-                        <input type="number" name="ID" class="form-control " id="id"
-                            value="<?php echo $row['ID']; ?>" readonly/>
 
-                    </div>-->
                     <div class="form-group ">
-                        <label for="user">Username:</label>
-                        <input type="text" name="user" class="form-control" id="user"
-                            value="<?php echo $row['username']; ?>" />
+                        <label for="code">Code:</label>
+                        <input type="text" name="code" class="form-control" id="code" 
+                        value="<?php echo $row['code']; ?>"/>
 
                     </div>
                     <div class="form-group">
-                        <label for="pass">Password:</label>
-                        <input type="text" name="pass" class="form-control" id="pass"
-                            value="<?php echo $row['password']; ?>" />
+                        <label for="pname">Product Name:</label>
+                        <input type="text" name="pname" class="form-control" id="pname"
+                        value="<?php echo $row['product_name']; ?>" />
 
                     </div>
                     <div class="form-group">
-                        <label for="branch">Branch:</label>
-                        <input type="text" name="branch" class="form-control" id="branch"
-                            value="<?php echo $row['branch']; ?>" />
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" name="quantity" class="form-control" id="quantity" 
+                        value="<?php echo $row['quantity']; ?>"/>
 
                     </div>
-                    <div class="form-group">
-                        <label for="type">Type:</label>
-                        <input type="text" name="type" class="form-control" id="type"
-                            value="<?php echo $row['usertype']; ?>" />
 
-                    </div>
-                    <div class="form-group">
-                        <label for="dname">Display Name:</label>
-                        <input type="text" name="dname" class="form-control" id="dname"
-                            value="<?php echo $row['display_name']; ?>" />
 
-                    </div>
                     <div class="text-center">
                         <input type="submit" value="submit" name="submit_btn" class="btn btn-primary mt-3" />
                     </div>

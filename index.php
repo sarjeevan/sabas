@@ -37,7 +37,10 @@
             if ($row['password'] == md5($pass)) {
 
                 session_start();
-                $_SESSION['username'] = $user;
+                $_SESSION['username'] = $row['display_name']; 
+                $_SESSION['usertype']=$row['usertype'];
+
+
 
                 //based on user type, redirect to corresponding section
                 $type = $row['usertype'];

@@ -49,8 +49,8 @@ if (!isset($_SESSION['username'])) {
 
 <body>
     <?php
-   
-     if(isset($_GET['submit_btn'])){
+
+    if (isset($_GET['submit_btn'])) {
         $servername = 'localhost';
         $username = 'root';
         $password = '';
@@ -59,23 +59,24 @@ if (!isset($_SESSION['username'])) {
         $pass = $_GET['pass'];
         $branch = $_GET['branch'];
         $type = $_GET['type'];
-        $hashed_pass=md5($pass);
+        $dname = $_GET['dname'];
+        $hashed_pass = md5($pass);
 
         $conn = mysqli_connect($servername, $username, $password, $dbname);
-        $sql="INSERT INTO `users` (`username`,`password`,`branch`,`usertype`) 
-        VALUES ('$user','$hashed_pass','$branch','$type')";
+        $sql = "INSERT INTO `users` (`username`,`password`,`branch`,`usertype`,`display_name`) 
+        VALUES ('$user','$hashed_pass','$branch','$type','$dname')";
         if (mysqli_query($conn, $sql)) {
             header("location:users.php");
-        }else{
+        } else {
             echo "error in creation";
         }
-        
-         
+
+
 
         mysqli_close($conn);
 
 
-     }
+    }
 
     ?>
 
@@ -123,6 +124,11 @@ if (!isset($_SESSION['username'])) {
                     <div class="form-group">
                         <label for="type">Type:</label>
                         <input type="text" name="type" class="form-control" id="type" />
+
+                    </div>
+                    <div class="form-group">
+                        <label for="dname">Display Name:</label>
+                        <input type="text" name="dname" class="form-control" id="dname" />
 
                     </div>
                     <div class="text-center">

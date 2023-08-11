@@ -100,6 +100,7 @@ if (!isset($_SESSION['username'])) {
                     <th class="text-center ">Password</th>
                     <th class="text-center ">Branch</th>
                     <th class="text-center ">Usertype</th>
+                    <th class="text-center">Display Name</th>
                     <th class="text-center ">Delete</th>
                     <th class="text-center ">Edit</th>
                 </tr>
@@ -122,6 +123,9 @@ if (!isset($_SESSION['username'])) {
                             </td>
                             <td class="text-center ">
                                 <?php echo $row['usertype']; ?>
+                            </td>
+                            <td class="text-center ">
+                                <?php echo $row['display_name']; ?>
                             </td>
                             <td class="text-center ">
                                 <a class="" href="users.php?ID=<?php echo $row['ID'] ?>" >

@@ -31,8 +31,8 @@
 
       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
         <li class="dropdown-header">
-          <h6>Sarjeevan</h6>
-          <span>Admin</span>
+          <h6><?php echo $_SESSION['username']; ?></h6>
+          <span><?php echo $_SESSION['usertype']; ?></span>
         </li>
         <li>
           <hr class="dropdown-divider">

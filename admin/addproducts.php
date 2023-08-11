@@ -4,6 +4,7 @@ if (!isset($_SESSION['username'])) {
     header("Location:../index.php");
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,35 +50,35 @@ if (!isset($_SESSION['username'])) {
 <body>
     <?php
 
-    $servername = 'localhost';
-    $username = 'root';
-    $password = '';
-    $dbname = 'sabas';
-    $id = $_GET['ID'];
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-    $sql = "SELECT * FROM users WHERE ID=$id ";
+    if (isset($_GET['submit_btn'])) {
+        $servername = 'localhost';
+        $username = 'root';
+        $password = '';
+        $dbname = 'sabas';
+        $code = $_GET['code'];
+        $pname = $_GET['pname'];
+        $quantity = $_GET['quantity'];
+        
+     
 
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-    if (isset($_POST['submit_btn'])) {
-
-        $user = $_POST['user'];
-        $pass = $_POST['pass'];
-        $branch = $_POST['branch'];
-        $type = $_POST['type'];
-        $dname = $_POST['dname'];
-
-        $sql = "UPDATE users SET username='$user',password='$pass',branch='$branch',usertype='$type',display_name='$dname' WHERE ID=$id";
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        $sql = "INSERT INTO `products` (`code`,`product_name`,`quantity`) 
+        VALUES ('$code','$pname','$quantity')";
         if (mysqli_query($conn, $sql)) {
-            header("location:users.php");
+            header("location:products.php");
         } else {
-            echo "error in update";
+            echo "error in creation";
         }
 
+
+
         mysqli_close($conn);
+
+
     }
 
     ?>
+
     <!-- ======= Header ======= -->
 
     <?php include 'header.php' ?>
@@ -89,51 +90,32 @@ if (!isset($_SESSION['username'])) {
     <?php include 'sidebar.php' ?>
 
     <!-- End Sidebar-->
+
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Edit Users</h1>
+            <h1>Add User</h1>
         </div><!-- End Page Title -->
-
         <div class="row">
             <div class="w-75 mx-auto ">
-                <form method="POST" action="">
-                    <!--<div class="form-group ">
-                       <label for="id">ID:</label>
-                        <input type="number" name="ID" class="form-control " id="id"
-                            value="<?php echo $row['ID']; ?>" readonly/>
-
-                    </div>-->
+                <form method="GET" action="">
+                   
                     <div class="form-group ">
-                        <label for="user">Username:</label>
-                        <input type="text" name="user" class="form-control" id="user"
-                            value="<?php echo $row['username']; ?>" />
+                        <label for="code">Code:</label>
+                        <input type="text" name="code" class="form-control" id="code" />
 
                     </div>
                     <div class="form-group">
-                        <label for="pass">Password:</label>
-                        <input type="text" name="pass" class="form-control" id="pass"
-                            value="<?php echo $row['password']; ?>" />
+                        <label for="pname">Product Name:</label>
+                        <input type="text" name="pname" class="form-control" id="pname" />
 
                     </div>
                     <div class="form-group">
-                        <label for="branch">Branch:</label>
-                        <input type="text" name="branch" class="form-control" id="branch"
-                            value="<?php echo $row['branch']; ?>" />
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" name="quantity" class="form-control" id="quantity" />
 
                     </div>
-                    <div class="form-group">
-                        <label for="type">Type:</label>
-                        <input type="text" name="type" class="form-control" id="type"
-                            value="<?php echo $row['usertype']; ?>" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="dname">Display Name:</label>
-                        <input type="text" name="dname" class="form-control" id="dname"
-                            value="<?php echo $row['display_name']; ?>" />
-
-                    </div>
+                  
                     <div class="text-center">
                         <input type="submit" value="submit" name="submit_btn" class="btn btn-primary mt-3" />
                     </div>
@@ -145,12 +127,11 @@ if (!isset($_SESSION['username'])) {
             </div>
         </div>
 
-
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
 
-    <?php include 'footer.php'; ?>
+    <?php include 'footer.php' ?>
 
     <!-- End Footer -->
 
