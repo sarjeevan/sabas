@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-    header("Location:../index.php");
+  header("Location:../index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -50,7 +50,7 @@ if (!isset($_SESSION['username'])) {
 
   <!-- ======= Header ======= -->
 
-   <?php  include 'header.php' ?>
+  <?php include 'header.php' ?>
 
   <!-- End Header -->
 
@@ -65,65 +65,61 @@ if (!isset($_SESSION['username'])) {
     <div class="pagetitle">
       <h1>Add Intent</h1><br>
 
-      
+
     </div><!-- End Page Title -->
 
     <!-- End Sales Card -->
-    Products:<input type="text" id="myInput" placeholder="Product" title="Type in the required product"></input>
-    Quantity:<input type="text" placeholder="Quantity" title="Type in the required quantity"></input>
- <button class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424">Add</button>
+    Products:<input type="text" id="product" placeholder="Product" title="Type in the required product"></input>
+    Quantity:<input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
+    <button class="btn text-white pt-0 pb-0 text-end" onclick="addrow()" style="background-color:#402424">Add</button>
 
 
-        <table id="myTable" class="table table-striped">
-            <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-            </tr>
-            <tr>
-                <td>Samosa</td>
-                <td>200</td>
-            </tr>
-            <tr>
-                <td>Puffs</td>
-                <td>150</td>
-            </tr>
-            <tr>
-                <td>Cutlet</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td>Sandwich</td>
-                <td>75</td>
-            </tr>
-            <tr>
-                <td>Roll</td>
-                <td>50</td>
-            </tr>
-  
-        </table>
-    
-        
-      <script>
-/*function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
+    <table id="table" class="table table-striped table-bordered mt-3">
+       <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+       </tr>
+
+    </table>
+
+
+    <script>
+      /*function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }       
+        }
+      }*/
+      function addrow() {
+        var tablerow = document.getElementById("table");
+        var product = document.getElementById("product").value;
+        var quantity = document.getElementById("quantity").value;
+
+        var row = tablerow.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell1.innerHTML = product;
+        cell2.innerHTML = quantity;
+        clear();
       }
-    }       
-  }
-}*/
-</script>
-    
+      function clear(){
+        document.getElementById("product").value="";
+        document.getElementById("quantity").value="";
+      }
+    </script>
+
     </div>
     </div><!-- End Left side columns -->
 
@@ -151,7 +147,7 @@ if (!isset($_SESSION['username'])) {
 
   <!-- ======= Footer ======= -->
 
-   <?php include 'footer.php' ?>
+  <?php include 'footer.php' ?>
 
   <!-- End Footer -->
 
