@@ -1,8 +1,8 @@
 <?php
-//session_start();
-//if (!isset($_SESSION['username'])) {
-//    header("Location:../index.php");
-//}
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location:../index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +50,7 @@
 
   <!-- ======= Header ======= -->
 
-   <?php  include 'header.php' ?>
+  <?php include 'header.php' ?>
 
   <!-- End Header -->
 
@@ -65,13 +65,13 @@
     <div class="pagetitle">
       <h1>Add Intent</h1><br>
 
-      
+
     </div><!-- End Page Title -->
 
     <!-- End Sales Card -->
-    <label class="display-6">Products:</label><input type="text" id="product" placeholder="Product" title="Type in the required product"></input>
-    <label class="display-6">Quantity:</label><input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
- <button type="submit"  class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424" onclick="myFunction()">Add</button>
+    <label class="display-6">Products:</label><input type="text" id="products" placeholder="Product" title="Type in the required product"></input>
+    <label>Quantity:</label><input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
+ <button class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424" onclick="myFunction()">Add</button>
  <script>
  
  function myFunction(){
@@ -145,12 +145,10 @@
         tr[i].style.display = "";
       } else {
         tr[i].style.display = "none";
+>>>>>>> dcd27c6e00332a63a40d0e079002042ad41df4c8
       }
-    }       
-  }
-}*/
-</script>
-    
+    </script>
+
     </div>
     </div><!-- End Left side columns -->
 
@@ -178,7 +176,7 @@
 
   <!-- ======= Footer ======= -->
 
-   <?php include 'footer.php' ?>
+  <?php include 'footer.php' ?>
 
   <!-- End Footer -->
 
