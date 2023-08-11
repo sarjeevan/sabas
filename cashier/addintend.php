@@ -68,10 +68,10 @@ if (!isset($_SESSION['username'])) {
       
     </div><!-- End Page Title -->
 
-    <!-- End Sales Card --><form>
+    <!-- End Sales Card -->
     Products:<input type="text" id="myInput" placeholder="Product" title="Type in the required product"></input>
     Quantity:<input type="text" placeholder="Quantity" title="Type in the required quantity"></input>
- <button class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424">Add</button></form>
+ <button class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424">Add</button>
 
 
         <table id="myTable" class="table table-striped">
