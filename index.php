@@ -11,65 +11,79 @@
 </head>
 
 <body>
-    <?php 
-    if(isset($_GET['submit'])){
-    $servername='localhost';
-    $username='root';
-    $password='';
-    $dbname='sabas';
-    $user=$_GET['username'];
-    $pass=$_GET['password'];
-    echo $pass;
-    //die();
-    $conn=mysqli_connect($servername,$username,$password,$dbname);
-   
-    $sql="SELECT * FROM users WHERE username='$user' ";
-    $result=mysqli_query($conn,$sql);
-    global $row;
-    
-    if(mysqli_num_rows($result)>0){
-        
-        $row=mysqli_fetch_assoc($result);
-var_dump($row);
+    <?php
+    $err;
+    if (isset($_GET['submit'])) {
+        $servername = 'localhost';
+        $username = 'root';
+        $password = '';
+        $dbname = 'sabas';
+        $user = $_GET['username'];
+        $pass = $_GET['password'];
+        //echo $pass;
+        //die();
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-        if($row['password']==$pass){
-        
-            session_start();
-            $_SESSION['username']=$user;
+        $sql = "SELECT * FROM users WHERE username='$user' ";
+        $result = mysqli_query($conn, $sql);
+        global $row;
 
-            //based on user type, redirect to corresponding section
-            $type=$row['usertype'];
-            
-            header("Location: $type/index.php");
+        if (mysqli_num_rows($result) > 0) {
+
+            $row = mysqli_fetch_assoc($result);
+            # var_dump($row);
     
-        }else{
-            echo  "Invalid Password";
-           //0 header("Location:index.php");
+
+            if ($row['password'] == md5($pass)) {
+
+                session_start();
+                $_SESSION['username'] = $row['display_name']; 
+                $_SESSION['usertype']=$row['usertype'];
+
+
+
+                //based on user type, redirect to corresponding section
+                $type = $row['usertype'];
+
+                header("Location: $type/index.php");
+
+            } else {
+                $err = "Invalid Password";
+                //0 header("Location:index.php");
+            }
+        } else {
+            $err = "Invalid Username";
         }
-    }else{
-        echo "Invalid Username";
+
+
     }
-   
-    
-}
-    
-    
-    
+
+
+
     ?>
     <main>
         <div class="container">
 
             <section>
-               
+
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                            <?php if (isset($err)) { ?>
+                                <div class="alert alert-danger alert-dismissible fade show mt-2 w-75" role="alert">
+                                    <?php   echo $err;   ?>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            <?php } ?>
+
+
 
                             <div class="d-flex justify-content-center py-4 w-75 ">
-                                
-                                    <img src="assets/img/SABAS.png"   height="200" width="300" alt="">
-                                    
-                                
+
+                                <img src="assets/img/SABAS PNG.png" height="150" width="300" alt="">
+
+
                             </div>
 
 
@@ -108,7 +122,8 @@ var_dump($row);
                       </div>
                     </div>-->
                                         <div class="col-12">
-                                            <button class="btn btn-primary w-100" type="submit" name="submit" onclick="validate()">Login</button>
+                                            <button class="btn btn-primary w-100" type="submit" name="submit"
+                                                onclick="validate()">Login</button>
                                         </div>
                                         <!-- <div class="col-12">
                       <p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>
@@ -134,18 +149,18 @@ var_dump($row);
 
         </div>
     </main><!-- End #main -->
-<script>
-    function validate(){
-        var username=document.getElementById('yourUsername').value;
-        var password=document.getElementById('yourPassword').value;
-        if(!username){
-            alert("please enter your username");
-        }else if(!password){
-            alert("please enter your password");
+    <script>
+        function validate() {
+            var username = document.getElementById('yourUsername').value;
+            var password = document.getElementById('yourPassword').value;
+            if (!username) {
+                alert("please enter your username");
+            } else if (!password) {
+                alert("please enter your password");
 
+            }
         }
-    }
-</script>
+    </script>
 
 </body>
 

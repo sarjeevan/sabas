@@ -95,18 +95,18 @@
   <!--<li class="nav-heading">Pages</li>-->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="index.html"  style="background-color:#402424">
-    <i class="bi bi-arrow-left-right"></i>
-      <span class="text-white">Intend</span>
+    <a class="nav-link collapsed" href="users.php"  style="background-color:#402424">
+    <i class="bi bi-people bi-lg" style="font-size:20px;"  ></i>
+      <span class="text-white">Users</span>
     </a>
-  </li><!-- End Profile Page Nav -->
+  </li><!-- End users Page Nav -->
 
-  <!--<li class="nav-item">
-    <a class="nav-link collapsed" href=""  style="background-color:#402424">
-      <i class="bi bi-question-circle"></i>
-      <span class="text-white">F.A.Q</span>
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="products.php"  style="background-color:#402424">
+      <i class="bi bi-globe" style="font-size:20px;"></i>
+      <span class="text-white">Products</span>
     </a>
-  </li>--><!-- End F.A.Q Page Nav -->
+  </li><!-- End products Page Nav -->
 
   <!--<li class="nav-item">
     <a class="nav-link collapsed" href=""  style="background-color:#402424">
