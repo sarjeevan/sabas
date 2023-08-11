@@ -69,17 +69,16 @@ if (!isset($_SESSION['username'])) {
     </div><!-- End Page Title -->
 
     <!-- End Sales Card -->
-<<<<<<< HEAD
     Products:<input type="text" id="product" placeholder="Product" title="Type in the required product"></input>
     Quantity:<input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
     <button class="btn text-white pt-0 pb-0 text-end" onclick="addrow()" style="background-color:#402424">Add</button>
 
 
     <table id="table" class="table table-striped table-bordered mt-3">
-       <tr>
+      <tr>
         <th>Product</th>
         <th>Quantity</th>
-       </tr>
+      </tr>
 
     </table>
 
@@ -115,69 +114,15 @@ if (!isset($_SESSION['username'])) {
         cell2.innerHTML = quantity;
         clear();
       }
-      function clear(){
-        document.getElementById("product").value="";
-        document.getElementById("quantity").value="";
-=======
-    <label class="display-6">Products:</label><input type="text" id="products" placeholder="Product" title="Type in the required product"></input>
-    <label>Quantity:</label><input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
- <button class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424" onclick="myFunction()">Add</button>
- <script>
- 
- document.getElementById("products").value;
- alert("Product")
-
- </script>
-
-
-        <table id="myTable" class="table table-striped">
-            <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-            </tr>
-            <tr>
-                <td>Samosa</td>
-                <td>200</td>
-            </tr>
-            <tr>
-                <td>Puffs</td>
-                <td>150</td>
-            </tr>
-            <tr>
-                <td>Cutlet</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td>Sandwich</td>
-                <td>75</td>
-            </tr>
-            <tr>
-                <td>Roll</td>
-                <td>50</td>
-            </tr>
-  
-        </table>
-    
-        
-      <script>
-/*function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
->>>>>>> dcd27c6e00332a63a40d0e079002042ad41df4c8
+      function clear() {
+        document.getElementById("product").value = "";
+        document.getElementById("quantity").value = "";
       }
+
     </script>
 
+
+    
     </div>
     </div><!-- End Left side columns -->
 
