@@ -1,8 +1,8 @@
 <?php
-session_start();
-if (!isset($_SESSION['username'])) {
-    header("Location:../index.php");
-}
+//session_start();
+//if (!isset($_SESSION['username'])) {
+//    header("Location:../index.php");
+//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,13 +69,34 @@ if (!isset($_SESSION['username'])) {
     </div><!-- End Page Title -->
 
     <!-- End Sales Card -->
-    <label class="display-6">Products:</label><input type="text" id="products" placeholder="Product" title="Type in the required product"></input>
-    <label>Quantity:</label><input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
- <button class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424" onclick="myFunction()">Add</button>
+    <label class="display-6">Products:</label><input type="text" id="product" placeholder="Product" title="Type in the required product"></input>
+    <label class="display-6">Quantity:</label><input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
+ <button type="submit"  class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424" onclick="myFunction()">Add</button>
  <script>
  
- document.getElementById("products").value;
- alert("Product")
+ function myFunction(){
+	let product=document.getElementById('product').value;
+	let quantity=document.getElementById('quantity').value;
+ 
+	if(firstname =="" || lastname ==""){
+		alert("Please enter something first!");
+	}else{
+		let parent=document.createElement('tr');
+		let col1=document.createElement('td');
+		let col2=document.createElement('td');
+		let text1=document.createTextNode(product);
+		let text2=document.createTextNode(quantity);
+		col1.appendChild(text1);
+		col2.appendChild(text2);
+		parent.appendChild(col1);
+		parent.appendChild(col2);
+ 
+		document.getElementById('result').appendChild(parent);
+ 
+		document.getElementById('product').value="";
+		document.getElementById('quantity').value="";
+	}
+}
 
  </script>
 
