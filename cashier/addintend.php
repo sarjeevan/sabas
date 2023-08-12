@@ -71,38 +71,23 @@ if (!isset($_SESSION['username'])) {
     <!-- End Sales Card -->
     Products:<input type="text" id="product" placeholder="Product" title="Type in the required product"></input>
     Quantity:<input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
-    <button class="btn text-white pt-0 pb-0 text-end" onclick="addrow()" style="background-color:#402424">Add</button>
+    <button class="btn text-white pt-0 pb-0 text-end" onclick="addrow(this)" style="background-color:#402424">Add</button>
 
 
-    <table id="table" class="table table-striped table-bordered mt-3">
+    <table id="table" class="table table-striped table-bordered mt-3 w-75">
       <tr>
         <th>Product</th>
         <th>Quantity</th>
+        <th> </th>
       </tr>
 
     </table>
 
 
     <script>
-      /*function myFunction() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td")[0];
-          if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-            } else {
-              tr[i].style.display = "none";
-            }
-          }       
-        }
-      }*/
+      
       function addrow() {
+        //var delete1="<button type="submit">Delete</button>";
         var tablerow = document.getElementById("table");
         var product = document.getElementById("product").value;
         var quantity = document.getElementById("quantity").value;
@@ -110,13 +95,20 @@ if (!isset($_SESSION['username'])) {
         var row = tablerow.insertRow(-1);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
+        var cell3 =row.insertCell(2)
         cell1.innerHTML = product;
         cell2.innerHTML = quantity;
-        clear();
+        cell3.innerHTML= "<a onclick='deleterow(this)'> <i class='bi bi-trash3'  style='font-size:25px;'></i></a>";
+       clear();
       }
       function clear() {
         document.getElementById("product").value = "";
         document.getElementById("quantity").value = "";
+      }
+      function deleterow(row){
+        var index= row.parentNode.parentNode.rowIndex;
+        document.getElementById("table").deleteRow(index);
+
       }
 
     </script>

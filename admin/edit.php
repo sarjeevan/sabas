@@ -91,59 +91,58 @@ if (!isset($_SESSION['username'])) {
     <!-- End Sidebar-->
     <main id="main" class="main">
 
-        <div class="pagetitle">
+        <div class="pagetitle mb-4">
             <h1>Edit Users</h1>
         </div><!-- End Page Title -->
 
-        <div class="row">
-            <div class="w-75 mx-auto ">
-                <form method="POST" action="">
-                    <!--<div class="form-group ">
-                       <label for="id">ID:</label>
-                        <input type="number" name="ID" class="form-control " id="id"
-                            value="<?php echo $row['ID']; ?>" readonly/>
+        <div class="card ">
+            <div class="card-body mt-4">
+              
 
-                    </div>-->
-                    <div class="form-group ">
-                        <label for="user">Username:</label>
-                        <input type="text" name="user" class="form-control" id="user"
-                            value="<?php echo $row['username']; ?>" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="pass">Password:</label>
-                        <input type="text" name="pass" class="form-control" id="pass"
-                            value="<?php echo $row['password']; ?>" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="branch">Branch:</label>
-                        <input type="text" name="branch" class="form-control" id="branch"
-                            value="<?php echo $row['branch']; ?>" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="type">Type:</label>
-                        <input type="text" name="type" class="form-control" id="type"
-                            value="<?php echo $row['usertype']; ?>" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="dname">Display Name:</label>
-                        <input type="text" name="dname" class="form-control" id="dname"
-                            value="<?php echo $row['display_name']; ?>" />
-
-                    </div>
-                    <div class="text-center">
-                        <input type="submit" value="submit" name="submit_btn" class="btn btn-primary mt-3" />
-                    </div>
-
-                </form>
-
-
+              
+              <form method="POST" action="">
+                <div class="row mb-3">
+                  <label for="user" class="col-sm-2 col-form-label">Username:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control w-75" id="user" name="user" value="<?php echo $row['username'] ; ?>" />
+                  </div>
+                </div>
+                <div class="row mb-3">
+                   <label for="pass" class="col-sm-2 col-form-label">Password:</label>
+                   <div class="col-sm-10">
+                    <input type="text" class="form-control w-75" id="pass" name="pass" value="<?php echo $row['password'] ; ?>" />
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="branch" class="col-sm-2 col-form-label">Branch:</label>
+                   <div class="col-sm-10">
+                    <input type="text" class="form-control w-75" id="branch" name="branch" value="<?php echo $row['branch'] ; ?>" />
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="type" class="col-sm-2 col-form-label">User Type:</label>
+                   <div class="col-sm-10">
+                   <input type="text" name="type" class="form-control w-75" id="type"  value="<?php echo $row['usertype'] ; ?>" />
+                  </div>
+                </div>
+                
+                <div class="row mb-3">
+                  <label for="dname" class="col-sm-2 col-form-label ">Display Name:</label>
+                   <div class="col-sm-10">
+                   <input type="text" name="dname" class="form-control w-75" id="dname" value="<?php echo $row['display_name'] ; ?>" />
+                  </div>
+                </div>
+                
+                
+                <div class="text-center">
+                <input type="submit" value="submit" name="submit_btn" class="btn btn-primary mt-3" />
+                  
+                </div>
+              </form><!-- End Horizontal Form -->
 
             </div>
-        </div>
+          </div>
+
 
 
     </main><!-- End #main -->
