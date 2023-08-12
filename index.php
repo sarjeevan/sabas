@@ -81,7 +81,7 @@
 
                             <div class="d-flex justify-content-center py-4 w-75 ">
 
-                                <img src="assets/img/SABAS PNG.png" height="150" width="300" alt="">
+                                <img src="assets/img/SABAS PNG.png" height="100" width="150" alt="">
 
 
                             </div>

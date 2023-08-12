@@ -94,53 +94,56 @@ if (!isset($_SESSION['username'])) {
 
     <main id="main" class="main">
 
-        <div class="pagetitle">
+        <div class="pagetitle mb-4">
             <h1>Add User</h1>
         </div><!-- End Page Title -->
-        <div class="row">
-            <div class="w-75 mx-auto ">
-                <form method="GET" action="add.php">
-                    <!--<div class="form-group ">
-                       <label for="id">ID:</label>
-                        <input type="number" name="ID" class="form-control " id="id"
-                            value="<?php echo $row['ID']; ?>" readonly/>
+        <div class="card ">
+            <div class="card-body mt-4">
+              
 
-                    </div>-->
-                    <div class="form-group ">
-                        <label for="user">Username:</label>
-                        <input type="text" name="user" class="form-control" id="user" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="pass">Password:</label>
-                        <input type="text" name="pass" class="form-control" id="pass" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="branch">Branch:</label>
-                        <input type="text" name="branch" class="form-control" id="branch" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="type">Type:</label>
-                        <input type="text" name="type" class="form-control" id="type" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="dname">Display Name:</label>
-                        <input type="text" name="dname" class="form-control" id="dname" />
-
-                    </div>
-                    <div class="text-center">
-                        <input type="submit" value="submit" name="submit_btn" class="btn btn-primary mt-3" />
-                    </div>
-
-                </form>
-
-
+              
+              <form method="GET" action="add.php">
+                <div class="row mb-3">
+                  <label for="user" class="col-sm-2 col-form-label">Username:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control w-75" id="user" name="user">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                   <label for="pass" class="col-sm-2 col-form-label">Password:</label>
+                   <div class="col-sm-10">
+                    <input type="text" class="form-control w-75" id="pass" name="pass">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="branch" class="col-sm-2 col-form-label">Branch:</label>
+                   <div class="col-sm-10">
+                    <input type="text" class="form-control w-75" id="branch" name="branch">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="type" class="col-sm-2 col-form-label">User Type:</label>
+                   <div class="col-sm-10">
+                   <input type="text" name="type" class="form-control w-75" id="type" />
+                  </div>
+                </div>
+                
+                <div class="row mb-3">
+                  <label for="dname" class="col-sm-2 col-form-label ">Display Name:</label>
+                   <div class="col-sm-10">
+                   <input type="text" name="dname" class="form-control w-75" id="dname" />
+                  </div>
+                </div>
+                
+                
+                <div class="text-center">
+                <input type="submit" value="submit" name="submit_btn" class="btn btn-primary mt-3" />
+                  
+                </div>
+              </form><!-- End Horizontal Form -->
 
             </div>
-        </div>
+          </div>
 
     </main><!-- End #main -->
 
