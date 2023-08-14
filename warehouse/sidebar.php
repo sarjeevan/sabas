@@ -95,7 +95,7 @@
   <!--<li class="nav-heading">Pages</li>-->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="index.html"  style="background-color:#402424">
+    <a class="nav-link collapsed" href="index.php"  style="background-color:#402424">
     <i class="bi bi-house"></i>
       <span class="text-white">Warehouse</span>
     </a>

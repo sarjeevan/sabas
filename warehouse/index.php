@@ -1,27 +1,29 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-    header("Location:../index.php");
+  header("Location:../index.php");
 }
-?>  
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
- <meta charset="utf-8">
+  <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Sabas</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-<!-- Favicons -->
+  <!-- Favicons -->
   <link href="../assets/img/SABAS.png" rel="icon">
   <!--<link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -48,60 +50,87 @@ if (!isset($_SESSION['username'])) {
 
   <!-- ======= Header ======= -->
 
-  <?php include 'header.php'  ?>
+  <?php include 'header.php' ?>
 
   <!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
 
-   <?php include 'sidebar.php' ?>
+  <?php include 'sidebar.php' ?>
 
   <!-- End Sidebar-->
 
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Manufacturing</h1>
+      <h1>Warehouse</h1>
     </div><!-- End Page Title -->
 
-  <!-- End Sales Card -->
+    <!-- End Sales Card -->
+    <div class="pagetitle">
+      <h1>Paramathi Road:</h1>
+    </div>
+    <table class="table table-striped">
+      <tr>
+        <th>Order ID</th>
+        <th>Date</th>
+        <th>From</th>
+        <th>Status</th>
+        <th>View</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>11.08.2023</td>
+        <td>Paramathi Road</td>
+        <td>Placed</td>
+        <td><a href="viewpage.php" class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424"><!--<i class="bi bi-eye"></i>-->View</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>11.08.2023</td>
+        <td>Mohanur Road</td>
+        <td>Placed</td>
+        <td><a href="viewpage.php" class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424"><!--<i class="bi bi-eye"></i>-->View</th>
+      </tr>
+    </table>
 
-            <!-- Revenue Card -->
-            <!-- End Revenue Card -->
 
-            <!-- Customers Card -->
-          <!-- End Customers Card -->
+    <!-- Revenue Card -->
+    <!-- End Revenue Card -->
 
-            <!-- Reports -->
-          <!-- End Reports -->
+    <!-- Customers Card -->
+    <!-- End Customers Card -->
 
-            <!-- Recent Sales -->
-          <!-- End Recent Sales -->
+    <!-- Reports -->
+    <!-- End Reports -->
 
-            <!-- Top Selling -->
-          <!-- End Top Selling -->
+    <!-- Recent Sales -->
+    <!-- End Recent Sales -->
 
-          </div>
-        </div><!-- End Left side columns -->
+    <!-- Top Selling -->
+    <!-- End Top Selling -->
 
-        <!-- Right side columns -->
-        <!--<div class="col-lg-4">-->
+    </div>
+    </div><!-- End Left side columns -->
 
-          <!-- Recent Activity -->
-          <!-- End Recent Activity -->
+    <!-- Right side columns -->
+    <!--<div class="col-lg-4">-->
 
-          <!-- Budget Report -->
-          <!-- End Budget Report -->
+    <!-- Recent Activity -->
+    <!-- End Recent Activity -->
 
-          <!-- Website Traffic -->
-          <!-- End Website Traffic -->
+    <!-- Budget Report -->
+    <!-- End Budget Report -->
 
-          <!-- News & Updates Traffic -->
-          <!-- End News & Updates -->
+    <!-- Website Traffic -->
+    <!-- End Website Traffic -->
 
-        </div><!-- End Right side columns -->
+    <!-- News & Updates Traffic -->
+    <!-- End News & Updates -->
 
-      </div>
+    </div><!-- End Right side columns -->
+
+    </div>
     </section>
 
   </main><!-- End #main -->
@@ -112,7 +141,8 @@ if (!isset($_SESSION['username'])) {
 
   <!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>

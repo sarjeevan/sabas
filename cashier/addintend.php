@@ -69,118 +69,36 @@ if (!isset($_SESSION['username'])) {
     </div><!-- End Page Title -->
 
     <!-- End Sales Card -->
-<<<<<<< HEAD
-    <label class="display-6">Products:</label><input type="text" id="products" placeholder="Product" title="Type in the required product"></input>
-    <label>Quantity:</label><input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
- <button class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424" onclick="myFunction()">Add</button>
- <script>
- 
- function myFunction(){
-	let product=document.getElementById('product').value;
-	let quantity=document.getElementById('quantity').value;
- 
-	if(firstname =="" || lastname ==""){
-		alert("Please enter something first!");
-	}else{
-		let parent=document.createElement('tr');
-		let col1=document.createElement('td');
-		let col2=document.createElement('td');
-		let text1=document.createTextNode(product);
-		let text2=document.createTextNode(quantity);
-		col1.appendChild(text1);
-		col2.appendChild(text2);
-		parent.appendChild(col1);
-		parent.appendChild(col2);
- 
-		document.getElementById('result').appendChild(parent);
- 
-		document.getElementById('product').value="";
-		document.getElementById('quantity').value="";
-	}
-}
 
- </script>
+    <label><b>Products:</b></label><input type="text" id="product" placeholder="Product" title="Type in the required product" required></input>
+    <label><b>Quantity:</b></label><input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity" required></input>
+ <button class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424" onclick="myCreateFunction()">Add</button>
+ <button class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424" onclick="deleteRow()">Delete</button>
+ 
 
 
-        <table id="myTable" class="table table-striped">
+        <table id="table" class="table table-striped">
             <tr>
                 <th>Product</th>
                 <th>Quantity</th>
-            </tr>
-            <tr>
-                <td>Samosa</td>
-                <td>200</td>
-            </tr>
-            <tr>
-                <td>Puffs</td>
-                <td>150</td>
-            </tr>
-            <tr>
-                <td>Cutlet</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td>Sandwich</td>
-                <td>75</td>
-            </tr>
-            <tr>
-                <td>Roll</td>
-                <td>50</td>
-            </tr>
-  
-        </table>
+                <th></th>
+                </tr> 
+            </table>
     
         
       <script>
-/*function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
->>>>>>> dcd27c6e00332a63a40d0e079002042ad41df4c8
-=======
-    Products:<input type="text" id="product" placeholder="Product" title="Type in the required product"></input>
-    Quantity:<input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
-    <button class="btn text-white pt-0 pb-0 text-end" onclick="addrow()" style="background-color:#402424">Add</button>
+        function myCreateFunction() {
+  var table = document.getElementById("myTable");
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  cell1.innerHTML = "NEW CELL1";
+  cell2.innerHTML = "NEW CELL2";
+}
 
-
-    <table id="table" class="table table-striped table-bordered mt-3">
-      <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-      </tr>
-
-    </table>
-
-
-    <script>
-      /*function myFunction() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td")[0];
-          if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-            } else {
-              tr[i].style.display = "none";
-            }
-          }       
-        }
-      }*/
+function myDeleteFunction() {
+  document.getElementById("myTable").deleteRow(0);
+}
       function addrow() {
         var tablerow = document.getElementById("table");
         var product = document.getElementById("product").value;
@@ -196,9 +114,11 @@ if (!isset($_SESSION['username'])) {
       function clear() {
         document.getElementById("product").value = "";
         document.getElementById("quantity").value = "";
->>>>>>> 43a44812e13763ab1d75f98d9070c5a58b688819
       }
-
+      /*function deleteRow{
+        document.getElementById("table").deleteRow(0);
+      }
+*/
     </script>
 
 

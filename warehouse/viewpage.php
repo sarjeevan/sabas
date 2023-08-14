@@ -1,9 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['username'])) {
-   header("Location:../index.php");
-}
-?>  
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,12 +57,22 @@ if (!isset($_SESSION['username'])) {
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Cashier</h1><br>
-
-      
+      <h1>Paramathi Road:</h1><br>
     </div><!-- End Page Title -->
 
     <!-- End Sales Card -->
+    <table class="table table-striped">
+        <tr>
+            <th>S No</th>
+            <th>Name</th>
+            <th>Quanity</th>
+</tr>
+<tr>
+    <td>1</td>
+    <td>Samosa</td>
+    <td>100</td>
+</tr>
+</table>
 
     </div>
     </div><!-- End Left side columns -->
