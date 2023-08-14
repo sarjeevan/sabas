@@ -69,6 +69,7 @@ if (!isset($_SESSION['username'])) {
     </div><!-- End Page Title -->
 
     <!-- End Sales Card -->
+<<<<<<< HEAD
 
     <label><b>Products:</b></label><input type="text" id="product" placeholder="Product" title="Type in the required product" required></input>
     <label><b>Quantity:</b></label><input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity" required></input>
@@ -99,7 +100,27 @@ if (!isset($_SESSION['username'])) {
 function myDeleteFunction() {
   document.getElementById("myTable").deleteRow(0);
 }
+=======
+    Products:<input type="text" id="product" placeholder="Product" title="Type in the required product"></input>
+    Quantity:<input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
+    <button class="btn text-white pt-0 pb-0 text-end" onclick="addrow(this)" style="background-color:#402424">Add</button>
+
+
+    <table id="table" class="table table-striped table-bordered mt-3 w-75">
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th> </th>
+      </tr>
+
+    </table>
+
+
+    <script>
+      
+>>>>>>> c149384a15fc8256361d09c9e1e4fd441b655764
       function addrow() {
+        //var delete1="<button type="submit">Delete</button>";
         var tablerow = document.getElementById("table");
         var product = document.getElementById("product").value;
         var quantity = document.getElementById("quantity").value;
@@ -107,18 +128,29 @@ function myDeleteFunction() {
         var row = tablerow.insertRow(-1);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
+        var cell3 =row.insertCell(2)
         cell1.innerHTML = product;
         cell2.innerHTML = quantity;
-        clear();
+        cell3.innerHTML= "<a onclick='deleterow(this)'> <i class='bi bi-trash3'  style='font-size:25px;'></i></a>";
+       clear();
       }
       function clear() {
         document.getElementById("product").value = "";
         document.getElementById("quantity").value = "";
       }
+<<<<<<< HEAD
       /*function deleteRow{
         document.getElementById("table").deleteRow(0);
       }
 */
+=======
+      function deleterow(row){
+        var index= row.parentNode.parentNode.rowIndex;
+        document.getElementById("table").deleteRow(index);
+
+      }
+
+>>>>>>> c149384a15fc8256361d09c9e1e4fd441b655764
     </script>
 
 

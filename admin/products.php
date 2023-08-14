@@ -4,6 +4,7 @@ if (!isset($_SESSION['username'])) {
     header("Location:index.php");
 }
 ?>
+<?php include '../common/db.config.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,10 +50,7 @@ if (!isset($_SESSION['username'])) {
 
 <body>
     <?php
-    $servername = 'localhost';
-    $username = 'root';
-    $password = '';
-    $dbname = 'sabas';
+   
     $conn = mysqli_connect($servername, $username, $password, $dbname);
     $sql = "SELECT * FROM products";
 

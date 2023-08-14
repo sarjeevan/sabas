@@ -93,39 +93,45 @@ if (!isset($_SESSION['username'])) {
 
     <main id="main" class="main">
 
-        <div class="pagetitle">
+        <div class="pagetitle mb-4">
             <h1>Add User</h1>
         </div><!-- End Page Title -->
-        <div class="row">
-            <div class="w-75 mx-auto ">
-                <form method="GET" action="">
-                   
-                    <div class="form-group ">
-                        <label for="code">Code:</label>
-                        <input type="text" name="code" class="form-control" id="code" />
+        <div class="card ">
+            <div class="card-body mt-4">
+              
 
-                    </div>
-                    <div class="form-group">
-                        <label for="pname">Product Name:</label>
-                        <input type="text" name="pname" class="form-control" id="pname" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="quantity">Quantity:</label>
-                        <input type="number" name="quantity" class="form-control" id="quantity" />
-
-                    </div>
+              
+              <form method="GET" action="">
+                <div class="row mb-3">
+                  <label for="code" class="col-sm-2 col-form-label">Code:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control w-75" id="code" name="code">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                   <label for="pname" class="col-sm-2 col-form-label">Product Name:</label>
+                   <div class="col-sm-10">
+                    <input type="text" class="form-control w-75" id="pname" name="pname">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="quantity" class="col-sm-2 col-form-label">Quantity:</label>
+                   <div class="col-sm-10">
+                    <input type="text" class="form-control w-75" id="quantity" name="quantity">
+                  </div>
+                </div>
+               
+                
+                
+                <div class="text-center">
+                <input type="submit" value="submit" name="submit_btn" class="btn btn-primary mt-3" />
                   
-                    <div class="text-center">
-                        <input type="submit" value="submit" name="submit_btn" class="btn btn-primary mt-3" />
-                    </div>
-
-                </form>
-
-
+                </div>
+              </form><!-- End Horizontal Form -->
 
             </div>
-        </div>
+          </div>
+
 
     </main><!-- End #main -->
 

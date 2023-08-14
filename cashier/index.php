@@ -1,7 +1,11 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
+<<<<<<< HEAD
    header("Location:../index.php");
+=======
+    header("Location:../index.php");
+>>>>>>> c149384a15fc8256361d09c9e1e4fd441b655764
 }
 ?>  
 <!DOCTYPE html>
