@@ -69,7 +69,7 @@ if (!isset($_SESSION['username'])) {
     </div><!-- End Page Title -->
 
     <!-- End Sales Card -->
-<<<<<<< HEAD
+
 
     <label><b>Products:</b></label><input type="text" id="product" placeholder="Product" title="Type in the required product" required></input>
     <label><b>Quantity:</b></label><input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity" required></input>
@@ -100,7 +100,7 @@ if (!isset($_SESSION['username'])) {
 function myDeleteFunction() {
   document.getElementById("myTable").deleteRow(0);
 }
-=======
+
     Products:<input type="text" id="product" placeholder="Product" title="Type in the required product"></input>
     Quantity:<input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
     <button class="btn text-white pt-0 pb-0 text-end" onclick="addrow(this)" style="background-color:#402424">Add</button>
@@ -118,7 +118,7 @@ function myDeleteFunction() {
 
     <script>
       
->>>>>>> c149384a15fc8256361d09c9e1e4fd441b655764
+
       function addrow() {
         //var delete1="<button type="submit">Delete</button>";
         var tablerow = document.getElementById("table");
@@ -138,19 +138,19 @@ function myDeleteFunction() {
         document.getElementById("product").value = "";
         document.getElementById("quantity").value = "";
       }
-<<<<<<< HEAD
+
       /*function deleteRow{
         document.getElementById("table").deleteRow(0);
       }
 */
-=======
+
       function deleterow(row){
         var index= row.parentNode.parentNode.rowIndex;
         document.getElementById("table").deleteRow(index);
 
       }
 
->>>>>>> c149384a15fc8256361d09c9e1e4fd441b655764
+
     </script>
 
 
