@@ -66,7 +66,7 @@
     <!-- End Sales Card -->
 
 
-    <label><b>Products:</b></label><input type="text" id="product" placeholder="Product" title="Type in the required product" required></input>
+    <!--<label><b>Products:</b></label><input type="text" id="product" placeholder="Product" title="Type in the required product" required></input>
     <label><b>Quantity:</b></label><input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity" required></input>
  <button class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424" onclick="myCreateFunction()">Add</button>
  <button class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424" onclick="deleteRow()">Delete</button>
@@ -94,14 +94,14 @@
 
 function myDeleteFunction() {
   document.getElementById("myTable").deleteRow(0);
-}
+}-->
 
     Products:<input type="text" id="product" placeholder="Product" title="Type in the required product"></input>
     Quantity:<input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
     <button class="btn text-white pt-0 pb-0 text-end" onclick="addrow(this)" style="background-color:#402424">Add</button>
 
 
-    <table id="table" class="table table-striped table-bordered mt-3 w-75">
+    <table id="table" class="table table-striped mt-3 w-75">
       <tr>
         <th>Product</th>
         <th>Quantity</th>
