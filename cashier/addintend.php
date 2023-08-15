@@ -1,9 +1,4 @@
-<?php
-session_start();
-if (!isset($_SESSION['username'])) {
-    header("Location:../index.php");
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +11,7 @@ if (!isset($_SESSION['username'])) {
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../assets/img/SABAS.png" rel="icon">
+  <link href="../assets/img/SABAS Round.png" rel="icon">
   <!--<link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
 
   <!-- Google Fonts -->
@@ -128,7 +123,7 @@ function myDeleteFunction() {
         var row = tablerow.insertRow(-1);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
-        var cell3 =row.insertCell(2)
+        var cell3 =row.insertCell(2);
         cell1.innerHTML = product;
         cell2.innerHTML = quantity;
         cell3.innerHTML= "<a onclick='deleterow(this)'> <i class='bi bi-trash3'  style='font-size:25px;'></i></a>";
@@ -141,8 +136,8 @@ function myDeleteFunction() {
 
       /*function deleteRow{
         document.getElementById("table").deleteRow(0);
-      }
-*/
+      }*/
+
 
       function deleterow(row){
         var index= row.parentNode.parentNode.rowIndex;

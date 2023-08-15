@@ -1,9 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['username'])) {
-    header("Location:../index.php");
-}
-?>  
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,8 +10,8 @@ if (!isset($_SESSION['username'])) {
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../assets/img/SABAS.png" rel="icon">
-  <!--<link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
+  <link href="../assets/img/SABAS Round.png" rel="icon">
+
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -49,94 +43,105 @@ if (!isset($_SESSION['username'])) {
 <body>
 
   <!-- ======= Header ======= -->
-  <?php include 'header.php'; ?>
+
+  <?php include 'header.php' ?>
+
   <!-- End Header -->
 
-  <?php include 'sidebar.php'; ?>
+  <!-- ======= Sidebar ======= -->
+
+  <?php include 'sidebar.php' ?>
+
+  <!-- End Sidebar-->
+
   <main id="main" class="main">
 
     <div class="pagetitle">
       <h1>Orders:</h1><br>
-      </div><!-- End Page Title -->
-      <div class="text-end pb-3">
+    </div><!-- End Page Title -->
+    <div class="text-end pb-3">
       <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search.." title="Type in barcode number  ">
-</div>
+    </div>
 
-        <table id="myTable" class="table table-bordered">
-        <tr>
-          <th>Barcode No</th>
-          <th>Branch</th>
-          <th>Product</th>
-          <th>Quantity</th>
-          <th>Delievery Date</th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Paramathi Road</td>
-          <td>Samosa</td>
-          <td>200</td>
-          <td>10-08-2023<td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Mohanur Road</td>
-          <td>Blackforest Cake</td>
-          <td>30</td>
-          <td>10-08-2023<td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Salem Road</td>
-          <td>Cutlet</td>
-          <td>100</td>
-          <td>10-08-2023<td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Puffs</td>
-          <td>Tiruchengode Road</td>
-          <td>150</td>
-          <td>10-08-2023<td>
-        </tr>
+    <table id="myTable" class="table table-bordered">
+      <tr>
+        <th>Barcode No</th>
+        <th>Branch</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Delievery Date</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Paramathi Road</td>
+        <td>Samosa</td>
+        <td>200</td>
+        <td>10-08-2023
+        <td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Mohanur Road</td>
+        <td>Blackforest Cake</td>
+        <td>30</td>
+        <td>10-08-2023
+        <td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Salem Road</td>
+        <td>Cutlet</td>
+        <td>100</td>
+        <td>10-08-2023
+        <td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Puffs</td>
+        <td>Tiruchengode Road</td>
+        <td>150</td>
+        <td>10-08-2023
+        <td>
+      </tr>
 
-      </table>
-      <script>
-function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
+    </table>
+    <script>
+      function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
       }
-    }       
-  }
-}
-</script>
+    </script>
 
-      <!-- End Sales Card -->
+    <!-- End Sales Card -->
 
-      <!-- Revenue Card -->
-      <!-- End Revenue Card -->
+    <!-- Revenue Card -->
+    <!-- End Revenue Card -->
 
-      <!-- Customers Card -->
-      <!-- End Customers Card -->
+    <!-- Customers Card -->
+    <!-- End Customers Card -->
 
-      <!-- Reports -->
-      <!-- End Reports -->
+    <!-- Reports -->
+    <!-- End Reports -->
 
-      <!-- Recent Sales -->
-      <!-- End Recent Sales -->
+    <!-- Recent Sales -->
+    <!-- End Recent Sales -->
 
-      <!-- Top Selling -->
-      <!-- End Top Selling -->
+    <!-- Top Selling -->
+    <!-- End Top Selling -->
 
     </div>
     </div><!-- End Left side columns -->

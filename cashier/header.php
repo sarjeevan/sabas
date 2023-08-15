@@ -1,44 +1,60 @@
+<?php
+session_start();
+if (isset($_SESSION['username'])) {
+  if ($_SESSION['usertype'] != "cashier") {
+    header("Location:../index.php");
+  }
+}else{
+  header("Location:../index.php");
+}
+?>
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center" style="background-color:#402424">
 
-<div class="d-flex align-items-center justify-content-between">
- 
-    <img src="../assets/img/SABAS W PNG.png" alt="sabas"  height="80">
+  <div class="d-flex align-items-center justify-content-between">
+
+    <img src="../assets/img/SABAS W PNG.png" alt="sabas" height="80">
     <span class="d-none d-lg-block" bg-light></span>
-  </a>
-  <i class="bi bi-list toggle-sidebar-btn "></i>
-</div><!-- End Logo -->
+    </a>
+    <i class="bi bi-list toggle-sidebar-btn "></i>
+  </div><!-- End Logo -->
 
 
-<nav class="header-nav ms-auto baxk">
-  <ul class="d-flex align-items-center">
+  <nav class="header-nav ms-auto baxk">
+    <ul class="d-flex align-items-center">
 
-    <li class="nav-item d-block d-lg-none">
-      <a class="nav-link nav-icon search-bar-toggle " href="#">
-        <i class="bi bi-search"></i>
-      </a>
-    </li><!-- End Search Icon-->
+      <li class="nav-item d-block d-lg-none">
+        <a class="nav-link nav-icon search-bar-toggle " href="#">
+          <i class="bi bi-search"></i>
+        </a>
+      </li><!-- End Search Icon-->
 
-    
-   
 
-    <li class="nav-item dropdown pe-3">
 
-      <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-        <img src="../assets/img/man.png" alt="Profile" class="rounded-circle">
-        <span class="d-none d-md-block dropdown-toggle ps-2 text-white"><?php echo $_SESSION['username']; ?></span>
-      </a><!-- End Profile Iamge Icon -->
 
-      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-        <li class="dropdown-header">
-          <h6><?php echo $_SESSION['username']; ?></h6>
-          <span><?php echo $_SESSION['usertype']; ?></span>
-        </li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
+      <li class="nav-item dropdown pe-3">
 
-        <!--<li>
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+          <img src="../assets/img/man.png" alt="Profile" class="rounded-circle">
+          <span class="d-none d-md-block dropdown-toggle ps-2 text-white">
+            <?php echo $_SESSION['username']; ?>
+          </span>
+        </a><!-- End Profile Iamge Icon -->
+
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+          <li class="dropdown-header">
+            <h6>
+              <?php echo $_SESSION['username']; ?>
+            </h6>
+            <span>
+              <?php echo $_SESSION['usertype']; ?>
+            </span>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <!--<li>
           <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
             <i class="bi bi-person"></i>
             <span>My Profile</span>
@@ -68,17 +84,17 @@
           <hr class="dropdown-divider">
         </li>-->
 
-        <li>
-          <a class="dropdown-item d-flex align-items-center" href="../logout.php">
-            <i class="bi bi-box-arrow-right"></i>
-            <span>Sign Out</span>
-          </a>
-        </li>
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="../logout.php">
+              <i class="bi bi-box-arrow-right"></i>
+              <span>Sign Out</span>
+            </a>
+          </li>
 
-      </ul><!-- End Profile Dropdown Items -->
-    </li><!-- End Profile Nav -->
+        </ul><!-- End Profile Dropdown Items -->
+      </li><!-- End Profile Nav -->
 
-  </ul>
-</nav><!-- End Icons Navigation -->
+    </ul>
+  </nav><!-- End Icons Navigation -->
 
 </header><!-- End Header -->

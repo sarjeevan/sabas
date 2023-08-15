@@ -1,10 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['username'])) {
-    header("Location:../index.php");
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +10,7 @@ if (!isset($_SESSION['username'])) {
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="../assets/img/SABAS.png" rel="icon">
+    <link href="../assets/img/SABAS Round.png" rel="icon">
     <!--<link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
 
     <!-- Google Fonts -->
