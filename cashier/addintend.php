@@ -63,7 +63,7 @@ if (!isset($_SESSION['username'])) {
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Add Intent</h1><br>
+      <h1>Add Intend</h1><br>
 
 
     </div><!-- End Page Title -->
@@ -100,10 +100,10 @@ if (!isset($_SESSION['username'])) {
 function myDeleteFunction() {
   document.getElementById("myTable").deleteRow(0);
 }-->
-
-    Products:<input type="text" id="product" placeholder="Product" title="Type in the required product"></input>
-    Quantity:<input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
-    <button class="btn text-white pt-0 pb-0 text-end" onclick="addrow(this)" style="background-color:#402424">Add</button>
+  <div class="pb-4 "><form>
+    <b>Products:<b>  <input type="text" class="mr-7" id="product" placeholder="Product" title="Type in the required product"></input>
+    <b>Quantity:<b>  <input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
+    <button class="btn text-white pt-0 pb-0 text-end" onclick="addrow(this)" style="background-color:#402424">Add</button><form></div>
 
 
     <table id="table" class="table table-striped mt-3 w-75">
