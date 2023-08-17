@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (isset($_SESSION['username'])) {
+  if($_SESSION['usertype']!="admin"){
+  header("Location:../index.php");
+  }
+}else{
+  header("Location:../index.php");
+}
+?>
+
 
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center" style="background-color:#402424">

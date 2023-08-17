@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (isset($_SESSION['usertype'])) {
+
+    $type = $_SESSION['usertype'];
+    if (isset($_SESSION['username'])) {
+        header("Location:./$type/index.php");
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,8 +48,8 @@
             if ($row['password'] == md5($pass)) {
 
                 session_start();
-                $_SESSION['username'] = $row['display_name']; 
-                $_SESSION['usertype']=$row['usertype'];
+                $_SESSION['username'] = $row['display_name'];
+                $_SESSION['usertype'] = $row['usertype'];
 
 
 
@@ -71,7 +82,7 @@
                         <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
                             <?php if (isset($err)) { ?>
                                 <div class="alert alert-danger alert-dismissible fade in show mt-2 w-75" role="alert">
-                                    <?php   echo $err;   ?>
+                                    <?php echo $err; ?>
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>
                                 </div>
