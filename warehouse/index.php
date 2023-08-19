@@ -11,7 +11,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../assets/img/SABAS Round.png" rel="icon">"apple-touch-icon">-->
+  <link href="../assets/img/SABAS Round.png" rel="icon">"apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -61,9 +61,9 @@
     </div><!-- End Page Title -->
 
     <!-- End Sales Card -->
-    <div class="pagetitle">
+   <!-- <div class="pagetitle">
       <h1>Paramathi Road:</h1>
-    </div>
+    </div>-->
     <table class="table table-striped">
       <tr>
         <th>Order ID</th>

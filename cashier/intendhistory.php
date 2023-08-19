@@ -228,10 +228,10 @@
                     <i class="bi bi-arrow-left-right"></i>
                     <span class="text-white">Intend</span>
                 </a>
-                <li class="nav-item">
+              <!--  <li class="nav-item">
                 <a class="nav-link collapsed" href="intend.php" style="background-color:#402424">
                 <i class="bi bi-clock-history"></i>
-                    <span class="text-white">Intend History</span>
+                    <span class="text-white">Intend History</span>-->
 </a>
                     
                 

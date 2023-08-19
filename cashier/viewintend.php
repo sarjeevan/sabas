@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,37 +56,28 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Warehouse</h1>
+      <h1>Intendhistory</h1>
     </div><!-- End Page Title -->
+<div class="text-end pb-3">
 
+
+</div>
     <!-- End Sales Card -->
-    <div class="pagetitle">
+    <!--<div class="pagetitle">
       <h1>Paramathi Road:</h1>
-    </div>
+    </div>-->
     <table class="table table-striped">
       <tr>
-        <th>Order ID</th>
-        <th>Date</th>
-        <th>From</th>
-        <th>Status</th>
-        <th>View</th>
+        <th>S No</th>
+        <th>Product</th>
+        <th>Quantity</th>
       </tr>
       <tr>
         <td>1</td>
-        <td>11.08.2023</td>
-        <td>Paramathi Road</td>
-        <td>Placed</td>
-        <td><a href="viewpage.php" class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424"><!--<i class="bi bi-eye"></i>-->View</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>11.08.2023</td>
-        <td>Mohanur Road</td>
-        <td>Placed</td>
-        <td><a href="viewpage.php" class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424"><!--<i class="bi bi-eye"></i>-->View</th>
+        <td>Samosa</td>
+        <td>200</td>
       </tr>
     </table>
-
 
     <!-- Revenue Card -->
     <!-- End Revenue Card -->

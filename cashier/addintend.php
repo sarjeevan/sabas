@@ -101,7 +101,7 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Add Intent</h1><br>
+      <h1>Add Intend</h1><br>
 
 
     </div><!-- End Page Title -->
@@ -111,6 +111,7 @@
 
     <div class="autocomplete">
 
+<<<<<<< HEAD
       Product: <input id="product" type="text" name="product" placeholder="">
 
       Quantity:<input type="number" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
@@ -121,6 +122,16 @@
       <button class="btn  btn-dark text-white pt-0 pb-0 text-end" onclick="load()">submit</button>
     </div>
 
+=======
+function myDeleteFunction() {
+  document.getElementById("myTable").deleteRow(0);
+}-->
+  <div class="pb-4"><form>
+    <b>Products:<b>  <input type="text" class="mr-7" id="product" placeholder="Product" title="Type in the required product"></input>
+    <b>Quantity:<b>  <input class="col-md-1" type="number" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
+    <button class="btn text-white pt-0 pb-0 text-end" onclick="addrow(this)" style="background-color:#402424"><i class="bi bi-plus"></i>Add</button><form></div>
+       
+>>>>>>> bd8406ef2bdcbf8082f108aa621d2e0f76b46e94
 
     <div id="res"></div>
     <table id="table" class="table table-striped mt-3 w-75">
