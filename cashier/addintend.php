@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,6 +38,46 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <style>
+    /*the container must be positioned relative:*/
+    .autocomplete {
+      position: relative;
+
+    }
+
+
+
+
+    .autocomplete-items {
+      position: absolute;
+      border: 1px solid #d4d4d4;
+      border-bottom: none;
+      border-top: none;
+      z-index: 99;
+      /*position the autocomplete items to be the same width as the container:*/
+      top: 100%;
+      left: 0;
+      right: 0;
+    }
+
+    .autocomplete-items div {
+      padding: 10px;
+      cursor: pointer;
+      background-color: #fff;
+      border-bottom: 1px solid #d4d4d4;
+    }
+
+    /*when hovering an item:*/
+    .autocomplete-items div:hover {
+      background-color: #e9e9e9;
+    }
+
+    /*when navigating through the items using the arrow keys:*/
+    .autocomplete-active {
+      background-color: DodgerBlue !important;
+      color: #ffffff;
+    }
+  </style>
 </head>
 
 <body>
@@ -54,6 +93,10 @@
   <?php include 'sidebar.php' ?>
 
   <!-- End Sidebar-->
+  <?php $user = $_SESSION['display_name'];
+  $branch = $_SESSION['branch'];
+  $date = date("Y-m-d");
+  ?>
 
   <main id="main" class="main">
 
@@ -62,45 +105,24 @@
 
 
     </div><!-- End Page Title -->
+    <div id="res">
 
-    <!-- End Sales Card -->
+    </div>
 
+    <div class="autocomplete">
 
-    <!--<label><b>Products:</b></label><input type="text" id="product" placeholder="Product" title="Type in the required product" required></input>
-    <label><b>Quantity:</b></label><input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity" required></input>
- <button class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424" onclick="myCreateFunction()">Add</button>
- <button class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424" onclick="deleteRow()">Delete</button>
- 
+      Product: <input id="product" type="text" name="product" placeholder="">
 
-
-        <table id="table" class="table table-striped">
-            <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th></th>
-                </tr> 
-            </table>
-    
-        
-      <script>
-        function myCreateFunction() {
-  var table = document.getElementById("myTable");
-  var row = table.insertRow(0);
-  var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
-  cell1.innerHTML = "NEW CELL1";
-  cell2.innerHTML = "NEW CELL2";
-}
-
-function myDeleteFunction() {
-  document.getElementById("myTable").deleteRow(0);
-}-->
-
-    Products:<input type="text" id="product" placeholder="Product" title="Type in the required product"></input>
-    Quantity:<input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
-    <button class="btn text-white pt-0 pb-0 text-end" onclick="addrow(this)" style="background-color:#402424">Add</button>
+      Quantity:<input type="number" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
+      <input type="hidden" id="product_id"  value=""/>
+      
+      <button class="btn text-white pt-0 pb-0 text-end" onclick="addrow(this)"
+        style="background-color:#402424">Add</button>
+      <button class="btn  btn-dark text-white pt-0 pb-0 text-end" onclick="load()">submit</button>
+    </div>
 
 
+    <div id="res"></div>
     <table id="table" class="table table-striped mt-3 w-75">
       <tr>
         <th>Product</th>
@@ -112,66 +134,231 @@ function myDeleteFunction() {
 
 
     <script>
-      
+
+      var products = [
+        { id: 1, name: "Samosa" },
+        { id: 2, name: "Cutlet" },
+        { id: 3, name: "Puffs" },
+        { id: 4, name: "Cake" },
+        { id: 5, name: "Bread" },
+        { id: 6, name: "Rusk" },
+        { id: 7, name: "Mixture" },
+        { id: 8, name: "Chips" },
+        { id: 9, name: "Laddu" },
+        { id: 10, name: "Mysorepak" },
+      ];
+      var name = "<?php echo $user; ?>";
+      var branch = "<?php echo $branch; ?>";
+      var date = "<?php echo $date; ?>";
+
+      var indent = {
+        branch: branch,
+        created_date: date,
+        created_by: name,
+        items: [
+
+        ]
+      }
+
+      console.log("indent", indent);
+
+
+
+
 
       function addrow() {
         //var delete1="<button type="submit">Delete</button>";
         var tablerow = document.getElementById("table");
         var product = document.getElementById("product").value;
         var quantity = document.getElementById("quantity").value;
+        var id= document.getElementById("product_id").value;
+
+         
+        /*function id(item) {
+          if (product == item.name) {
+            return item.id;
+          }
+        }
+        var id = products.find(id).id;
+        */
+
+        indent.items.push(
+          { productId: id, quantity: quantity }
+        );
+        //console.log("indent - updated", indent);
+
+
+
 
         var row = tablerow.insertRow(-1);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
-        var cell3 =row.insertCell(2);
+        var cell3 = row.insertCell(2);
         cell1.innerHTML = product;
         cell2.innerHTML = quantity;
-        cell3.innerHTML= "<a onclick='deleterow(this)'> <i class='bi bi-trash3'  style='font-size:25px;'></i></a>";
-       clear();
+        cell3.innerHTML = "<a onclick='deleterow(this)'> <i class='bi bi-trash3'  style='font-size:25px;'></i></a>";
+
+
+        clear();
       }
+      function load() {
+        senddata(indent);
+      }
+
+      function senddata(indent) {
+
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function (data) {
+          document.getElementById('res').innerHTML = this.responseText;
+        }
+
+
+        xhttp.open("POST", "api/addintend.php", true);
+        xhttp.setRequestHeader("Content-type", "application/json");
+        xhttp.send(JSON.stringify(indent));
+
+      }
+
+
       function clear() {
         document.getElementById("product").value = "";
         document.getElementById("quantity").value = "";
       }
 
-      /*function deleteRow{
-        document.getElementById("table").deleteRow(0);
-      }*/
-
-
-      function deleterow(row){
-        var index= row.parentNode.parentNode.rowIndex;
+      function deleterow(row) {
+        var index = row.parentNode.parentNode.rowIndex;
         document.getElementById("table").deleteRow(index);
 
       }
+
+      /**
+       * autocomplete input product feild
+       */
+      function autocomplete(inp) {
+        let arr = products;
+        /*the autocomplete function takes two arguments,
+        the text field element and an array of possible autocompleted values:*/
+        var currentFocus;
+        /*execute a function when someone writes in the text field:*/
+        inp.addEventListener("input", function (e) {
+          var a, b, i, val = this.value;
+          /*close any already open lists of autocompleted values*/
+          closeAllLists();
+          if (!val) {
+            return false;
+          }
+          currentFocus = -1;
+          /*create a DIV element that will contain the items (values):*/
+          a = document.createElement("DIV");
+          a.setAttribute("id", this.id + "autocomplete-list");
+          a.setAttribute("class", "autocomplete-items");
+          /*append the DIV element as a child of the autocomplete container:*/
+          this.parentNode.appendChild(a);
+          /*for each item in the array...*/
+          for (i = 0; i < arr.length; i++) {
+            /*check if the item starts with the same letters as the text field value:*/
+            if (arr[i].name.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+              /*create a DIV element for each matching element:*/
+              b = document.createElement("DIV");
+              /*make the matching letters bold:*/
+              b.innerHTML = "<strong>" + arr[i].name.substr(0, val.length) + "</strong>";
+              b.innerHTML += arr[i].name.substr(val.length);
+              /*insert a input field that will hold the current array item's value:*/
+              b.innerHTML += "<input type='hidden' id='name' value='" + arr[i].name + "'>";
+              b.innerHTML += "<input type='hidden' id='id' value='" + arr[i].id + "'>";
+              /*execute a function when someone clicks on the item value (DIV element):*/
+              b.addEventListener("click", function (e) {
+                /*insert the value for the autocomplete text field:*/
+                //inp.value = this.getElementBy("name")[0].value;
+                inp.value = this.querySelector("#name").value;
+                //this.getElementById
+                document.getElementById("product_id").value= this.querySelector("#id").value;
+                /*close the list of autocompleted values,
+                (or any other open lists of autocompleted values:*/
+                closeAllLists();
+              });
+              a.appendChild(b);
+            }
+          }
+        });
+
+
+        /*execute a function presses a key on the keyboard:*/
+        inp.addEventListener("keydown", function (e) {
+          var x = document.getElementById(this.id + "autocomplete-list");
+          if (x) x = x.getElementsByTagName("div");
+          if (e.keyCode == 40) {
+            /*If the arrow DOWN key is pressed,
+            increase the currentFocus variable:*/
+            currentFocus++;
+            /*and and make the current item more visible:*/
+            addActive(x);
+          } else if (e.keyCode == 38) { //up
+            /*If the arrow UP key is pressed,
+            decrease the currentFocus variable:*/
+            currentFocus--;
+            /*and and make the current item more visible:*/
+            addActive(x);
+          } else if (e.keyCode == 13) {
+            /*If the ENTER key is pressed, prevent the form from being submitted,*/
+            e.preventDefault();
+            if (currentFocus > -1) {
+              /*and simulate a click on the "active" item:*/
+              if (x) x[currentFocus].click();
+            }
+          }
+        });
+
+        function addActive(x) {
+          /*a function to classify an item as "active":*/
+          if (!x) return false;
+          /*start by removing the "active" class on all items:*/
+          removeActive(x);
+          if (currentFocus >= x.length) currentFocus = 0;
+          if (currentFocus < 0) currentFocus = (x.length - 1);
+          /*add class "autocomplete-active":*/
+          x[currentFocus].classList.add("autocomplete-active");
+        }
+
+        function removeActive(x) {
+          /*a function to remove the "active" class from all autocomplete items:*/
+          for (var i = 0; i < x.length; i++) {
+            x[i].classList.remove("autocomplete-active");
+          }
+        }
+
+        function closeAllLists(elmnt) {
+          /*close all autocomplete lists in the document,
+          except the one passed as an argument:*/
+          var x = document.getElementsByClassName("autocomplete-items");
+          for (var i = 0; i < x.length; i++) {
+            if (elmnt != x[i] && elmnt != inp) {
+              x[i].parentNode.removeChild(x[i]);
+            }
+          }
+        }
+        /*execute a function when someone clicks in the document:*/
+        document.addEventListener("click", function (e) {
+          closeAllLists(e.target);
+        });
+      }
+
+      
+      /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+      autocomplete(document.getElementById("product"));
+
+
+
+
+
 
 
     </script>
 
 
-    
-    </div>
-    </div><!-- End Left side columns -->
 
-    <!-- Right side columns -->
-    <!--<div class="col-lg-4">-->
 
-    <!-- Recent Activity -->
-    <!-- End Recent Activity -->
 
-    <!-- Budget Report -->
-    <!-- End Budget Report -->
-
-    <!-- Website Traffic -->
-    <!-- End Website Traffic -->
-
-    <!-- News & Updates Traffic -->
-    <!-- End News & Updates -->
-
-    </div><!-- End Right side columns -->
-
-    </div>
-    </section>
 
   </main><!-- End #main -->
 

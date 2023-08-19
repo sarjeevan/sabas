@@ -48,7 +48,9 @@ if (isset($_SESSION['usertype'])) {
             if ($row['password'] == md5($pass)) {
 
                 session_start();
-                $_SESSION['username'] = $row['display_name'];
+                $_SESSION['username'] = $row['username'];
+                $_SESSION['display_name']=$row['display_name'];
+                $_SESSION['branch']=$row['branch'];
                 $_SESSION['usertype'] = $row['usertype'];
 
 

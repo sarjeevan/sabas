@@ -37,12 +37,12 @@ if (isset($_SESSION['username'])) {
 
       <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
         <img src="../assets/img/man.png" alt="Profile" class="rounded-circle">
-        <span class="d-none d-md-block dropdown-toggle ps-2 text-white"><?php echo $_SESSION['username']; ?></span>
+        <span class="d-none d-md-block dropdown-toggle ps-2 text-white"><?php echo $_SESSION['display_name']; ?></span>
       </a><!-- End Profile Iamge Icon -->
 
       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
         <li class="dropdown-header">
-          <h6><?php echo $_SESSION['username']; ?></h6>
+          <h6><?php echo $_SESSION['display_name']; ?></h6>
           <span><?php echo $_SESSION['usertype']; ?></span>
         </li>
         <li>
