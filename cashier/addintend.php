@@ -111,7 +111,7 @@
 
     <div class="autocomplete">
 
-      Product: <input id="product" type="text" name="product" placeholder="">
+      Product: <input id="product" type="text" name="product" placeholder="Product">
 
       Quantity:<input type="number" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
       <input type="hidden" id="product_id"  value=""/>
