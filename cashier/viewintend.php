@@ -56,12 +56,10 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Warehouse</h1>
+      <h1>Intendhistory</h1>
     </div><!-- End Page Title -->
 <div class="text-end pb-3">
 
-<button class="btn btn-info text-white" onclick="window.print()">Print</button>
-<button class="btn btn-info text-white" download="process.php">Download</button>
 
 </div>
     <!-- End Sales Card -->
@@ -71,22 +69,15 @@
     <table class="table table-striped">
       <tr>
         <th>S No</th>
-        <th>Name</th>
-        <th>Received Qty</th>
-        <th>Sent Qty</th>
+        <th>Product</th>
+        <th>Quantity</th>
       </tr>
       <tr>
         <td>1</td>
         <td>Samosa</td>
         <td>200</td>
-        <td><input type="number" class="col-md-2"></input></td>
       </tr>
     </table>
-    <div class="text-end">
-        <a href="" class="btn text-white btn-danger">Cancel</a>
-        <a href="" class="btn text-white btn-success">Transfer</a>
-    </div>
-
 
     <!-- Revenue Card -->
     <!-- End Revenue Card -->

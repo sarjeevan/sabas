@@ -62,9 +62,28 @@
 
       
     </div><!-- End Page Title -->
+    <div class="text-end pb-3">
+    <a href="addintend.php" class="btn btn-primary text-white"><i class="bi bi-plus"></i>Add Intend</a>
+    
+
+    </div>
 
     <!-- End Sales Card -->
-
+    <table class="table table-striped">
+            <tr>
+                <th>Order Id</th>
+                <th>To</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>P1</td>
+                <td>Warehouse</td>
+                <td>Pending</td>
+                <td><a href="viewintend.php" class="btn text-white pt-0 pb-0" style="background-color:#402424"><i class="bi bi-eye"></i>View</td>
+            </tr>
+  
+        </table>
     </div>
     </div><!-- End Left side columns -->
 

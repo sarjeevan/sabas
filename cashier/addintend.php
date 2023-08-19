@@ -95,11 +95,11 @@
 function myDeleteFunction() {
   document.getElementById("myTable").deleteRow(0);
 }-->
-  <div class="pb-4 "><form>
+  <div class="pb-4"><form>
     <b>Products:<b>  <input type="text" class="mr-7" id="product" placeholder="Product" title="Type in the required product"></input>
-    <b>Quantity:<b>  <input type="number" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
-    <button class="btn text-white pt-0 pb-0 text-end" onclick="addrow(this)" style="background-color:#402424">Add</button><form></div>
-
+    <b>Quantity:<b>  <input class="col-md-1" type="number" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
+    <button class="btn text-white pt-0 pb-0 text-end" onclick="addrow(this)" style="background-color:#402424"><i class="bi bi-plus"></i>Add</button><form></div>
+       
 
     <table id="table" class="table table-striped mt-3 w-75">
       <tr>

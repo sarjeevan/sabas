@@ -95,7 +95,7 @@
   <!--<li class="nav-heading">Pages</li>-->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="addintend.php"  style="background-color:#402424">
+    <a class="nav-link collapsed" href=""  style="background-color:#402424">
     <i class="bi bi-arrow-left-right"></i>
       <span class="text-white">Intend</span>
     </a>
