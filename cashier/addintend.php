@@ -97,7 +97,7 @@ function myDeleteFunction() {
 }-->
   <div class="pb-4 "><form>
     <b>Products:<b>  <input type="text" class="mr-7" id="product" placeholder="Product" title="Type in the required product"></input>
-    <b>Quantity:<b>  <input type="text" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
+    <b>Quantity:<b>  <input type="number" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
     <button class="btn text-white pt-0 pb-0 text-end" onclick="addrow(this)" style="background-color:#402424">Add</button><form></div>
 
 

@@ -73,6 +73,9 @@
     <td>100</td>
 </tr>
 </table>
+<div class="text-end">
+<a href="process.php" class="btn text-white" style="background-color:#402424">Process</a>
+</div>
 
     </div>
     </div><!-- End Left side columns -->
