@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php include '../common/db.config.php'; ?>
 
 <head>
   <meta charset="utf-8">
@@ -83,19 +84,18 @@
 <body>
 
   <!-- ======= Header ======= -->
-
   <?php include 'header.php' ?>
-
-  <!-- End Header -->
-
-  <!-- ======= Sidebar ======= -->
-
   <?php include 'sidebar.php' ?>
-
+  <!-- ======= Sidebar ======= -->
   <!-- End Sidebar-->
+
+
   <?php $user = $_SESSION['display_name'];
   $branch = $_SESSION['branch'];
   $date = date("Y-m-d");
+
+
+
   ?>
 
   <main id="main" class="main">
@@ -114,10 +114,9 @@
       Product: <input id="product" type="text" name="product" placeholder="Product">
 
       Quantity:<input type="number" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
-      <input type="hidden" id="product_id"  value=""/>
-      
-      <button class="btn text-white pt-0 pb-0 text-end" onclick="addrow(this)"
-        style="background-color:#402424">Add</button>
+      <input type="hidden" id="product_id" value="" />
+
+      <button class="btn  btn-dark text-white pt-0 pb-0 text-end" onclick="addrow(this)">Add</button>
       <button class="btn  btn-dark text-white pt-0 pb-0 text-end" onclick="load()">submit</button>
     </div>
 
@@ -133,20 +132,35 @@
     </table>
 
 
+
     <script>
 
       var products = [
-        { id: 1, name: "Samosa" },
-        { id: 2, name: "Cutlet" },
-        { id: 3, name: "Puffs" },
-        { id: 4, name: "Cake" },
-        { id: 5, name: "Bread" },
-        { id: 6, name: "Rusk" },
-        { id: 7, name: "Mixture" },
-        { id: 8, name: "Chips" },
-        { id: 9, name: "Laddu" },
-        { id: 10, name: "Mysorepak" },
+
       ];
+    
+      /***
+       * fetching products from database  
+       * adding it to products array
+       */
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function (data) {
+        var data = JSON.parse(this.responseText);
+        for(let i=0;i<data.length;i++){
+          var obj={id:data[i].ID, name: data[i].product_name };
+
+          products.push(obj);
+        }
+
+      }
+      xhttp.open("GET", "api/getproducts.php", true);
+      //xhttp.setRequestHeader("Content-type", "application/json");
+      xhttp.send();
+
+      
+
+
+
       var name = "<?php echo $user; ?>";
       var branch = "<?php echo $branch; ?>";
       var date = "<?php echo $date; ?>";
@@ -160,7 +174,7 @@
         ]
       }
 
-      console.log("indent", indent);
+     // console.log("indent", indent);
 
 
 
@@ -171,9 +185,19 @@
         var tablerow = document.getElementById("table");
         var product = document.getElementById("product").value;
         var quantity = document.getElementById("quantity").value;
-        var id= document.getElementById("product_id").value;
+        var id = document.getElementById("product_id").value;
+        if(!product){
+          alert("please enter product name");
+          return;
+        }
+        if(!quantity){
+          alert("please enter quantity");
+          return;
+        }
+        
+       
 
-         
+
         /*function id(item) {
           if (product == item.name) {
             return item.id;
@@ -223,6 +247,7 @@
       function clear() {
         document.getElementById("product").value = "";
         document.getElementById("quantity").value = "";
+        document.getElementById("product").focus(); 
       }
 
       function deleterow(row) {
@@ -272,7 +297,7 @@
                 //inp.value = this.getElementBy("name")[0].value;
                 inp.value = this.querySelector("#name").value;
                 //this.getElementById
-                document.getElementById("product_id").value= this.querySelector("#id").value;
+                document.getElementById("product_id").value = this.querySelector("#id").value;
                 /*close the list of autocompleted values,
                 (or any other open lists of autocompleted values:*/
                 closeAllLists();
@@ -343,7 +368,7 @@
         });
       }
 
-      
+
       /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
       autocomplete(document.getElementById("product"));
 
