@@ -59,6 +59,8 @@
       top: 100%;
       left: 0;
       right: 0;
+      margin-top: 15px;
+      width: 35%;
     }
 
     .autocomplete-items div {
@@ -79,10 +81,21 @@
       color: #ffffff;
     }
 
+<<<<<<< HEAD
     input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+=======
+    #innerdiv {
+      height: 400px;
+      width:
+    }
+    #add-btn{
+      border-radius: 10px;
+      
+    }
+>>>>>>> 11fc2ed292e74bc33c32c4f676d0cd3be4b7f602
   </style>
 </head>
 
@@ -105,45 +118,52 @@
 
   <main id="main" class="main">
 
-    <div class="pagetitle">
+    <div class="pagetitle mb-1">
       <h1>Add Intend</h1><br>
 
 
     </div><!-- End Page Title -->
-    <div id="res">
+    <div class="card w-75 ">
+      <div class="card-body mt-3 ">
+        <div id="innerdiv" >
 
+          <div class="autocomplete">
+
+            Product: <input id="product" type="text" name="product" placeholder="Product">
+
+            Quantity:<input type="number" id="quantity" placeholder="Quantity"
+              title="Type in the required quantity"></input>
+            <input type="hidden" id="product_id" value="" />
+
+            <button class="btn  btn-dark text-white " id="add-btn" onclick="addrow(this)">Add</button>
+
+          </div>
+
+
+          <div class="overflow-auto mt-2" style="height:325px;" >
+            <table border="1" id="table" class="table table-striped  w-100  ">
+              <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th> </th>
+              </tr>
+
+            </table>
+          </div>
+
+        </div> 
+        <div class="text-end">
+        <button class="btn  btn-dark text-white " onclick="load()">submit</button>
+        </div>
+      </div>
     </div>
-
-    <div class="autocomplete">
-
-      Product: <input id="product" type="text" name="product" placeholder="Product">
-
-      Quantity:<input type="number" id="quantity" placeholder="Quantity" title="Type in the required quantity"></input>
-      <input type="hidden" id="product_id" value="" />
-
-      <button class="btn  btn-dark text-white pt-0 pb-0 text-end" onclick="addrow(this)">Add</button>
-      <button class="btn  btn-dark text-white pt-0 pb-0 text-end" onclick="load()">submit</button>
-    </div>
-
-
-    <div id="res"></div>
-    <table id="table" class="table table-striped mt-3 w-75">
-      <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th> </th>
-      </tr>
-
-    </table>
-
-
 
     <script>
 
       var products = [
 
       ];
-    
+
       /***
        * fetching products from database  
        * adding it to products array
@@ -151,8 +171,8 @@
       const xhttp = new XMLHttpRequest();
       xhttp.onload = function (data) {
         var data = JSON.parse(this.responseText);
-        for(let i=0;i<data.length;i++){
-          var obj={id:data[i].ID, name: data[i].product_name };
+        for (let i = 0; i < data.length; i++) {
+          var obj = { id: data[i].ID, name: data[i].product_name };
 
           products.push(obj);
         }
@@ -162,7 +182,7 @@
       //xhttp.setRequestHeader("Content-type", "application/json");
       xhttp.send();
 
-      
+
 
 
 
@@ -179,7 +199,7 @@
         ]
       }
 
-     // console.log("indent", indent);
+      // console.log("indent", indent);
 
 
 
@@ -191,32 +211,19 @@
         var product = document.getElementById("product").value;
         var quantity = document.getElementById("quantity").value;
         var id = document.getElementById("product_id").value;
-        if(!product){
+        if (!product) {
           alert("please enter product name");
           return;
         }
-        if(!quantity){
+        if (!quantity) {
           alert("please enter quantity");
           return;
         }
-        
-       
-
-
-        /*function id(item) {
-          if (product == item.name) {
-            return item.id;
-          }
-        }
-        var id = products.find(id).id;
-        */
 
         indent.items.push(
           { productId: id, quantity: quantity }
         );
         //console.log("indent - updated", indent);
-
-
 
 
         var row = tablerow.insertRow(-1);
@@ -234,6 +241,7 @@
         senddata(indent);
       }
 
+      /* Submit data to server */
       function senddata(indent) {
 
         const xhttp = new XMLHttpRequest();
@@ -252,7 +260,7 @@
       function clear() {
         document.getElementById("product").value = "";
         document.getElementById("quantity").value = "";
-        document.getElementById("product").focus(); 
+        document.getElementById("product").focus();
       }
 
       function deleterow(row) {
@@ -285,31 +293,32 @@
           /*append the DIV element as a child of the autocomplete container:*/
           this.parentNode.appendChild(a);
           /*for each item in the array...*/
-          for (i = 0; i < arr.length; i++) {
-            /*check if the item starts with the same letters as the text field value:*/
-            if (arr[i].name.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-              /*create a DIV element for each matching element:*/
-              b = document.createElement("DIV");
-              /*make the matching letters bold:*/
-              b.innerHTML = "<strong>" + arr[i].name.substr(0, val.length) + "</strong>";
-              b.innerHTML += arr[i].name.substr(val.length);
-              /*insert a input field that will hold the current array item's value:*/
-              b.innerHTML += "<input type='hidden' id='name' value='" + arr[i].name + "'>";
-              b.innerHTML += "<input type='hidden' id='id' value='" + arr[i].id + "'>";
-              /*execute a function when someone clicks on the item value (DIV element):*/
-              b.addEventListener("click", function (e) {
+
+          arr.forEach(element => {
+
+            //If entered value is part of element
+            if (element.name.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+              //Container div for popup
+              const child = addChildElement(element, val);
+
+              child.addEventListener("click", function (e) {
                 /*insert the value for the autocomplete text field:*/
-                //inp.value = this.getElementBy("name")[0].value;
                 inp.value = this.querySelector("#name").value;
                 //this.getElementById
                 document.getElementById("product_id").value = this.querySelector("#id").value;
                 /*close the list of autocompleted values,
                 (or any other open lists of autocompleted values:*/
                 closeAllLists();
-              });
-              a.appendChild(b);
+              }
+              );
+
+              a.appendChild(child);
+
+
             }
-          }
+          });
+
+
         });
 
 
@@ -336,8 +345,24 @@
               /*and simulate a click on the "active" item:*/
               if (x) x[currentFocus].click();
             }
+            document.getElementById("quantity").focus();
+
           }
         });
+
+        // Add child element to autocomplete list
+        function addChildElement(ele, val) {
+          let itemElement;
+          itemElement = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          itemElement.innerHTML = "<strong>" + ele.name.substr(0, val.length) + "</strong>";
+          itemElement.innerHTML += ele.name.substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          itemElement.innerHTML += "<input type='hidden' id='name' value='" + ele.name + "'>";
+          itemElement.innerHTML += "<input type='hidden' id='id' value='" + ele.id + "'>";
+
+          return itemElement;
+        }
 
         function addActive(x) {
           /*a function to classify an item as "active":*/
@@ -376,6 +401,18 @@
 
       /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
       autocomplete(document.getElementById("product"));
+
+      const qty = document.getElementById("quantity");
+
+      qty.addEventListener("keydown", function (e) {
+        if (e.keyCode == 13) {
+          /*If the ENTER key is pressed, prevent the form from being submitted,*/
+          e.preventDefault();
+          document.getElementById("add-btn").click();
+
+
+        }
+      });
 
 
 
