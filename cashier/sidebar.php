@@ -4,9 +4,9 @@
 <ul class="sidebar-nav" id="sidebar-nav">
 
   <li class="nav-item">
-    <a class="nav-link" href="intend.php"  style="background-color:#402424">
-      <i class="bi bi-grid"></i>
-      <span class="text-white">Dashboard</span>
+    <a class="nav-link" href="index.php"  style="background-color:#402424">
+      <i class="bi bi-cart-plus" style="font-size:20px;"></i>
+      <span class="text-white">Add Intend</span>
     </a>
   </li><!-- End Dashboard Nav -->
 
@@ -95,9 +95,9 @@
   <!--<li class="nav-heading">Pages</li>-->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href=""  style="background-color:#402424">
-    <i class="bi bi-arrow-left-right"></i>
-      <span class="text-white">Intend</span>
+    <a class="nav-link collapsed" href="intendhistory.php"  style="background-color:#402424;">
+    <i class="bi bi-arrow-left-right" style="font-size:15px;"></i>
+      <span class="text-white">Intend History</span>
     </a>
   </li><!-- End Profile Page Nav -->
 

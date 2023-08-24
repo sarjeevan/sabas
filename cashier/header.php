@@ -9,6 +9,10 @@ if (isset($_SESSION['username'])) {
 }
 ?>
 <!-- ======= Header ======= -->
+<!--jquery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+
 <header id="header" class="header fixed-top d-flex align-items-center" style="background-color:#402424">
 
   <div class="d-flex align-items-center justify-content-between">

@@ -43,11 +43,7 @@
 
 <body>
 
-    <!-- ======= Header ======= -->
-   <?php include 'header.php' ?>
-   <?php include 'sidebar.php'?>
-    <!-- ======= Sidebar ======= -->
-    <!-- End Sidebar-->
+ 
     <main id="main" class="main">
         <div class="pagetitle">
             <h1>Intend History</h1>

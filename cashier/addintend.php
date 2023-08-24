@@ -81,21 +81,20 @@
       color: #ffffff;
     }
 
-<<<<<<< HEAD
     input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-=======
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
     #innerdiv {
       height: 400px;
       width:
     }
-    #add-btn{
+
+    #add-btn {
       border-radius: 10px;
-      
+
     }
->>>>>>> 11fc2ed292e74bc33c32c4f676d0cd3be4b7f602
   </style>
 </head>
 
@@ -123,9 +122,29 @@
 
 
     </div><!-- End Page Title -->
+
+
+
+
+
+    <div class="modal" id="basicModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-body" id="modalbody">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="modalclose" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="card w-75 ">
       <div class="card-body mt-3 ">
-        <div id="innerdiv" >
+        <div id="innerdiv">
 
           <div class="autocomplete">
 
@@ -140,7 +159,8 @@
           </div>
 
 
-          <div class="overflow-auto mt-2" style="height:325px;" >
+
+          <div class="overflow-auto mt-2" style="height:325px;">
             <table border="1" id="table" class="table table-striped  w-100  ">
               <tr>
                 <th>Product</th>
@@ -151,14 +171,16 @@
             </table>
           </div>
 
-        </div> 
+        </div>
         <div class="text-end">
-        <button class="btn  btn-dark text-white " onclick="load()">submit</button>
+          <button class="btn  btn-dark text-white " onclick="load()">submit</button>
         </div>
       </div>
     </div>
 
     <script>
+
+
 
       var products = [
 
@@ -220,6 +242,7 @@
           return;
         }
 
+
         indent.items.push(
           { productId: id, quantity: quantity }
         );
@@ -246,12 +269,27 @@
 
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function (data) {
-          document.getElementById('res').innerHTML = this.responseText;
+          //alert(this.responseText);
+          var res = JSON.parse(this.responseText);
+          console.log(res);
+          $("#basicModal").modal('hide');
+          if (res.result == "Success") {
+
+            document.getElementById('modalbody').innerHTML = res.result;
+            $("#basicModal").modal('show');
+          }else{
+            document.getElementById('modalbody').innerHTML = res.result;
+            $("#basicModal").modal('show');
+          }
+
         }
 
 
         xhttp.open("POST", "api/addintend.php", true);
         xhttp.setRequestHeader("Content-type", "application/json");
+        document.getElementById('modalbody').innerHTML = "Submitting..";
+        $("#basicModal").modal('show');
+
         xhttp.send(JSON.stringify(indent));
 
       }
