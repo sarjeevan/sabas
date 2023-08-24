@@ -11,7 +11,7 @@
 
   <!-- Favicons -->
   < <link href="../assets/img/SABAS Round.png" rel="icon">
-  <!--<link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
+  <!--<link href="../assets/img/apple-touch-icon.png">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
