@@ -266,7 +266,10 @@
 
       /* Submit data to server */
       function senddata(indent) {
-
+        if(indent.items.length==0){
+          alert("add products and its quantity");
+          return;
+        }
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function (data) {
           //alert(this.responseText);
@@ -471,7 +474,7 @@
 
   <?php include 'footer.php' ?>
 
-  <!-- End Footer -->
+  <!-- End Footer --> 
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
