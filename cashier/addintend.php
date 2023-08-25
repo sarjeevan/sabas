@@ -273,6 +273,7 @@
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function (data) {
           //alert(this.responseText);
+         
           var res = JSON.parse(this.responseText);
           console.log(res);
           $("#basicModal").modal('hide');

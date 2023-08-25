@@ -5,10 +5,12 @@ $req = file_get_contents("php://input");
 $obj = json_decode($req, true); //here it will convert it into php object by giving true it will converted into assoc array
 #var_dump($obj);
 $response = new stdClass();
+$status="new";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-$sql = "INSERT INTO `intend` (`branch`,`created_date`,`created_by`) 
-VALUES ('$obj[branch]','$obj[created_date]','$obj[created_by]')";
+$sql = "INSERT INTO `intend` (`branch`,`created_date`,`created_by`,`status`) 
+VALUES ('$obj[branch]','$obj[created_date]','$obj[created_by]','$status')";
+
 if (mysqli_query($conn, $sql)) {
     $response->result= "Success";
    
