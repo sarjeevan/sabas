@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+<?php include '../common/db.config.php'; ?>
 
 <head>
   <meta charset="utf-8">
@@ -42,10 +42,23 @@
 </head>
 
 <body>
+  <?php
+
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+  $sql = "SELECT * FROM intend";
+
+  $result = mysqli_query($conn, $sql);
+
+  $count = mysqli_num_rows($result);
+
+
+
+  ?>
 
   <!-- ======= Header ======= -->
 
-   <?php  include 'header.php' ?>
+  <?php include 'header.php' ?>
 
   <!-- End Header -->
 
@@ -60,52 +73,65 @@
     <div class="pagetitle">
       <h1>Cashier</h1><br>
 
-      
+
     </div><!-- End Page Title -->
     <div class="text-end pb-3">
-    <a href="addintend.php" class="btn btn-primary text-white"><i class="bi bi-plus"></i>Add Intend</a>
-    
+      <a href="addintend.php" class="btn btn-primary text-white"><i class="bi bi-plus"></i>Add Intend</a>
+
 
     </div>
+    <div class="card  ">
+      <div class="card-body mt-3 ">
+        <div class="overflow-auto" style="height:370px;">
+          <table class="table table-striped table-bordered">
 
-    <!-- End Sales Card -->
-    <table class="table table-striped">
             <tr>
-                <th>Order Id</th>
-                <th>To</th>
-                <th>Status</th>
-                <th></th>
+              <th class="text-center ">From</th>
+              <th class="text-center ">Created_Date</th>
+              <th class="text-center ">Created_By</th>
+
+              <th class="text-center ">Status</th>
+              <th class="text-center "></th>
+
             </tr>
-            <tr>
-                <td>P1</td>
-                <td>Warehouse</td>
-                <td>Pending</td>
-                <td><a href="viewintend.php" class="btn text-white pt-0 pb-0" style="background-color:#402424"><i class="bi bi-eye"></i>View</td>
-            </tr>
-  
-        </table>
+            <?php
+
+            if ($count > 0) {
+
+              for ($i = 0; $i < $count; $i++) {
+                $row = mysqli_fetch_assoc($result);
+
+                ?>
+                <tr>
+                  <td class="text-center ">
+                    <?php echo $row['branch']; ?>
+                  </td>
+                  <td class="text-center ">
+                    <?php echo $row['created_date']; ?>
+                  </td>
+                  <td class="text-center ">
+                    <?php echo $row['created_by']; ?>
+                  </td>
+                  <td class="text-center ">
+                    <?php echo $row['status']; ?>
+                  </td>
+                  <td class="text-center">
+                    
+                       <a class="btn btn-dark" href="viewintend.php?ID=<?php echo $row['ID'] ?>" >view</a>
+                  </td>
+
+
+                </tr>
+              <?php }
+            } else {
+              echo "no entries found";
+            } ?>
+          </table>
+        </div>
+
+      </div>
     </div>
-    </div><!-- End Left side columns -->
 
-    <!-- Right side columns -->
-    <!--<div class="col-lg-4">-->
-
-    <!-- Recent Activity -->
-    <!-- End Recent Activity -->
-
-    <!-- Budget Report -->
-    <!-- End Budget Report -->
-
-    <!-- Website Traffic -->
-    <!-- End Website Traffic -->
-
-    <!-- News & Updates Traffic -->
-    <!-- End News & Updates -->
-
-    </div><!-- End Right side columns -->
-
-    </div>
-    </section>
 
   </main><!-- End #main -->
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php include '../common/db.config.php'; ?>
 
 <head>
   <meta charset="utf-8">
@@ -40,6 +41,18 @@
 </head>
 
 <body>
+  <?php
+  $id = $_GET['ID'];
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+  $sql = "SELECT * FROM intend_items WHERE intend_id=$id ";
+
+  $result = mysqli_query($conn, $sql);
+
+  $count = mysqli_num_rows($result);
+
+
+
+  ?>
 
   <!-- ======= Header ======= -->
 
@@ -56,27 +69,56 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Intendhistory</h1>
+      <h1>Intend Items </h1>
     </div><!-- End Page Title -->
-<div class="text-end pb-3">
+    <div class="text-end pb-3">
 
 
-</div>
+    </div>
     <!-- End Sales Card -->
     <!--<div class="pagetitle">
       <h1>Paramathi Road:</h1>
     </div>-->
     <table class="table table-striped">
       <tr>
-        <th>S No</th>
-        <th>Product</th>
-        <th>Quantity</th>
+        <th class="text-center ">S No</th>
+        <th class="text-center ">Product</th>
+        <th class="text-center ">Quantity</th>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>Samosa</td>
-        <td>200</td>
-      </tr>
+      <?php
+
+      if ($count > 0) {
+
+        for ($i = 0; $i < $count; $i++) {
+          $row = mysqli_fetch_assoc($result);
+
+          ?>
+          <tr>
+            <td class="text-center ">
+              <?php echo $i; ?>
+            </td>
+            <td class="text-center ">
+              <?php
+              $pro_id = $row['product_id'];
+              $sql1 = "SELECT product_name FROM products WHERE ID=$pro_id ";
+              $result1 = mysqli_query($conn, $sql1);
+              $row1 = mysqli_fetch_assoc($result1);
+              echo $row1['product_name'];
+
+
+              ?>
+            </td>
+            <td class="text-center ">
+              <?php echo $row['product_quantity']; ?>
+            </td>
+
+
+
+          </tr>
+        <?php }
+      } else {
+        echo "no intend products found!!!";
+      } ?>
     </table>
 
     <!-- Revenue Card -->

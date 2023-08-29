@@ -122,7 +122,7 @@
                             </td>
                             <td class="text-center">
                             <a class="" href="editproducts.php?ID=<?php echo $row['ID'] ?>" >
-                                    <i class="bi bi-pencil-square " style="font-size:25px;"></i>
+                                <i class="bi bi-pencil-square " style="font-size:25px;"></i>
                                    
                                 </a>
                             </td>
