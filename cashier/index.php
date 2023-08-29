@@ -40,6 +40,12 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+<style>
+   .header1 {
+            position: sticky;
+            top:0;
+        }
+</style>
 
 <body>
   <?php
@@ -81,18 +87,19 @@
 
     </div>
     <div class="card  ">
-      <div class="card-body mt-3 ">
-        <div class="overflow-auto" style="height:370px;">
+      <div class="card-body mt-3 mb-1">
+        <div class="overflow-auto " style="height:370px;">
           <table class="table table-striped table-bordered">
 
             <tr>
-              <th class="text-center ">From</th>
-              <th class="text-center ">Created_Date</th>
-              <th class="text-center ">Created_By</th>
+              <thead style="position: sticky;top:0;margin-top:2px;" class="thead-dark">
+                <th class="text-center bg-dark text-white ">From</th>
+                <th class="text-center bg-dark text-white ">Created_Date</th>
+                <th class="text-center bg-dark text-white ">Created_By</th>
 
-              <th class="text-center ">Status</th>
-              <th class="text-center "></th>
-
+                <th class="text-center bg-dark text-white ">Status</th>
+                <th class="text-center bg-dark text-white "></th>
+              </thead>
             </tr>
             <?php
 
@@ -116,8 +123,8 @@
                     <?php echo $row['status']; ?>
                   </td>
                   <td class="text-center">
-                    
-                       <a class="btn btn-dark" href="viewintend.php?ID=<?php echo $row['ID'] ?>" >view</a>
+
+                    <a class="btn btn-dark" href="viewintend.php?ID=<?php echo $row['ID'] ?>">view</a>
                   </td>
 
 
