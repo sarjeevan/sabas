@@ -12,6 +12,7 @@
 
   <!-- Favicons -->
   <link href="../assets/img/SABAS Round.png" rel="icon">
+  <!--<link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -39,15 +40,20 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+<style>
+   .header1 {
+            position: sticky;
+            top:0;
+        }
+</style>
 
 <body>
   <?php
-  $id = $_GET['ID'];
+
   $conn = mysqli_connect($servername, $username, $password, $dbname);
- // $sql = "SELECT * FROM intend_items WHERE intend_id=$id ";
-  $sql="SELECT products.product_name,intend_items.product_quantity
-  FROM intend_items LEFT JOIN products ON intend_items.product_id=products.ID WHERE intend_items.intend_id=$id;";
-  
+
+  $sql = "SELECT * FROM intend";
+
   $result = mysqli_query($conn, $sql);
 
   $count = mysqli_num_rows($result);
@@ -71,87 +77,68 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Intend Items </h1>
+      <h1>Intend List</h1><br>
+
+
     </div><!-- End Page Title -->
-    <div class="text-end pb-3">
+    <!--<div class="text-end pb-3">
+      <a href="addintend.php" class="btn btn-primary text-white"><i class="bi bi-plus"></i>Add Intend</a>
 
 
-    </div>
-    <!-- End Sales Card -->
-    <!--<div class="pagetitle">
-      <h1>Paramathi Road:</h1>
     </div>-->
-    <table class="table table-striped">
-      <tr>
-        <th class="text-center ">S No</th>
-        <th class="text-center ">Product</th>
-        <th class="text-center ">Quantity</th>
-      </tr>
-      <?php
+    <div class="card  ">
+      <div class="card-body mt-3 mb-1">
+        <div class="overflow-auto " style="height:370px;">
+          <table class="table table-striped table-bordered">
 
-      if ($count > 0) {
+            <tr>
+              <thead style="position: sticky;top:0;margin-top:2px;" class="thead-dark">
+                <th class="text-center bg-dark text-white ">From</th>
+                <th class="text-center bg-dark text-white ">Created_Date</th>
+                <th class="text-center bg-dark text-white ">Created_By</th>
 
-        for ($i = 0; $i < $count; $i++) {
-          $row = mysqli_fetch_assoc($result);
+                <th class="text-center bg-dark text-white ">Status</th>
+                <th class="text-center bg-dark text-white "></th>
+              </thead>
+            </tr>
+            <?php
 
-          ?>
-          <tr>
-            <td class="text-center ">
-              <?php echo $i; ?>
-            </td>
-            <td class="text-center ">
-            <?php echo $row['product_name']; ?>
-            </td>
-            <td class="text-center ">
-              <?php echo $row['product_quantity']; ?>
-            </td>
+            if ($count > 0) {
+
+              for ($i = 0; $i < $count; $i++) {
+                $row = mysqli_fetch_assoc($result);
+
+                ?>
+                <tr>
+                  <td class="text-center ">
+                    <?php echo $row['branch']; ?>
+                  </td>
+                  <td class="text-center ">
+                    <?php echo $row['created_date']; ?>
+                  </td>
+                  <td class="text-center ">
+                    <?php echo $row['created_by']; ?>
+                  </td>
+                  <td class="text-center ">
+                    <?php echo $row['status']; ?>
+                  </td>
+                  <td class="text-center">
+
+                    <a class="btn btn-dark" href="viewintend.php?ID=<?php echo $row['ID'] ?>">view</a>
+                  </td>
 
 
+                </tr>
+              <?php }
+            } else {
+              echo "no entries found";
+            } ?>
+          </table>
+        </div>
 
-          </tr>
-        <?php }
-      } else {
-        echo "no intend products found!!!";
-      } ?>
-    </table>
-
-    <!-- Revenue Card -->
-    <!-- End Revenue Card -->
-
-    <!-- Customers Card -->
-    <!-- End Customers Card -->
-
-    <!-- Reports -->
-    <!-- End Reports -->
-
-    <!-- Recent Sales -->
-    <!-- End Recent Sales -->
-
-    <!-- Top Selling -->
-    <!-- End Top Selling -->
-
+      </div>
     </div>
-    </div><!-- End Left side columns -->
 
-    <!-- Right side columns -->
-    <!--<div class="col-lg-4">-->
-
-    <!-- Recent Activity -->
-    <!-- End Recent Activity -->
-
-    <!-- Budget Report -->
-    <!-- End Budget Report -->
-
-    <!-- Website Traffic -->
-    <!-- End Website Traffic -->
-
-    <!-- News & Updates Traffic -->
-    <!-- End News & Updates -->
-
-    </div><!-- End Right side columns -->
-
-    </div>
-    </section>
 
   </main><!-- End #main -->
 

@@ -108,12 +108,12 @@
     </a>
   </li><!-- End products Page Nav -->
 
-  <!--<li class="nav-item">
-    <a class="nav-link collapsed" href=""  style="background-color:#402424">
-      <i class="bi bi-envelope"></i>
-      <span class="text-white">Contact</span>
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="intendlist.php"  style="background-color:#402424;">
+    <i class="bi bi-arrow-left-right" style="font-size:20px;"></i>
+      <span class="text-white">Intend List</span>
     </a>
-  </li>--><!-- End Contact Page Nav -->
+  </li>
 
   <!--<li class="nav-item">
     <a class="nav-link collapsed" href=""  style="background-color:#402424">
