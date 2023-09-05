@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php include '../common/db.config.php'; ?>
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -43,10 +43,7 @@
 <body>
     <?php
 
-    $servername = 'localhost';
-    $username = 'root';
-    $password = '';
-    $dbname = 'sabas';
+   
     $id = $_GET['ID'];
     $conn = mysqli_connect($servername, $username, $password, $dbname);
     $sql = "SELECT * FROM users WHERE ID=$id ";

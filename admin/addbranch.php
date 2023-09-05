@@ -43,31 +43,30 @@
 <body>
     <?php
 
-    
-    $id = $_GET['ID'];
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-    $sql = "SELECT * FROM products WHERE ID=$id ";
-
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-    if (isset($_POST['submit_btn'])) {
-
-        $code = $_POST['code'];
-        $pname = $_POST['pname'];
-        $quantity = $_POST['quantity'];
+    if (isset($_GET['submit_btn'])) {
+       
+        $branch = $_GET['branch'];
         
+     
 
-        $sql = "UPDATE products SET code='$code',product_name='$pname',quantity='$quantity' WHERE ID=$id";
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        $sql = "INSERT INTO `branch` (`branch_name`) 
+        VALUES ('$branch')";
         if (mysqli_query($conn, $sql)) {
-            header("location:products.php");
+            header("location:branch.php");
         } else {
-            echo "error in update";
+            echo "error in creation";
         }
 
+
+
         mysqli_close($conn);
+
+
     }
 
     ?>
+
     <!-- ======= Header ======= -->
 
     <?php include 'header.php' ?>
@@ -79,36 +78,25 @@
     <?php include 'sidebar.php' ?>
 
     <!-- End Sidebar-->
+
     <main id="main" class="main">
 
         <div class="pagetitle mb-4">
-            <h1>Edit Users</h1>
+            <h1>Add User</h1>
         </div><!-- End Page Title -->
-
         <div class="card ">
             <div class="card-body mt-4">
               
 
               
-              <form method="POST" action="">
+              <form method="GET" action="">
                 <div class="row mb-3">
-                  <label for="code" class="col-sm-2 col-form-label">Code:</label>
+                  <label for="branch" class="col-sm-2 col-form-label">Name:</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control w-75" id="code" name="code" value="<?php echo $row['code'] ;?>">
+                    <input type="text" class="form-control w-75" id="branch" name="branch">
                   </div>
                 </div>
-                <div class="row mb-3">
-                   <label for="pname" class="col-sm-2 col-form-label">Product Name:</label>
-                   <div class="col-sm-10">
-                    <input type="text" class="form-control w-75" id="pname" name="pname" value="<?php echo $row['product_name'] ;?>">
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="quantity" class="col-sm-2 col-form-label">Quantity:</label>
-                   <div class="col-sm-10">
-                    <input type="text" class="form-control w-75" id="quantity" name="quantity" value="<?php echo $row['quantity'] ;?>">
-                  </div>
-                </div>
+                
                
                 
                 
@@ -122,13 +110,11 @@
           </div>
 
 
-
-
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
 
-    <?php include 'footer.php'; ?>
+    <?php include 'footer.php' ?>
 
     <!-- End Footer -->
 

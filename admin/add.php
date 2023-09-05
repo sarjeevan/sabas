@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php include '../common/db.config.php'; ?>
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -44,10 +44,7 @@
     <?php
 
     if (isset($_GET['submit_btn'])) {
-        $servername = 'localhost';
-        $username = 'root';
-        $password = '';
-        $dbname = 'sabas';
+       
         $user = $_GET['user'];
         $pass = $_GET['pass'];
         $branch = $_GET['branch'];

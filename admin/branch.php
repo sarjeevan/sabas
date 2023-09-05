@@ -1,6 +1,10 @@
+
+<?php include '../common/db.config.php'; ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-<?php include '../common/db.config.php'; ?>
+
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -42,93 +46,98 @@
 
 <body>
     <?php
-
     
-    $id = $_GET['ID'];
     $conn = mysqli_connect($servername, $username, $password, $dbname);
-    $sql = "SELECT * FROM products WHERE ID=$id ";
+    $sql = "SELECT * FROM branch";
 
     $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-    if (isset($_POST['submit_btn'])) {
-
-        $code = $_POST['code'];
-        $pname = $_POST['pname'];
-        $quantity = $_POST['quantity'];
-        
-
-        $sql = "UPDATE products SET code='$code',product_name='$pname',quantity='$quantity' WHERE ID=$id";
-        if (mysqli_query($conn, $sql)) {
-            header("location:products.php");
-        } else {
-            echo "error in update";
+    $count = mysqli_num_rows($result);
+    if(isset($_GET['ID'])){
+        $id=$_GET['ID'];
+        $sql="DELETE FROM branch WHERE ID=$id";
+        if(mysqli_query($conn,$sql)){
+            header("location:branch.php");
+        }else{
+            echo"delete not performed";
         }
 
-        mysqli_close($conn);
     }
 
+    mysqli_close($conn);
     ?>
-    <!-- ======= Header ======= -->
 
-    <?php include 'header.php' ?>
+
+    <!-- ======= Header ======= -->
+    <?php include 'header.php'; ?>
 
     <!-- End Header -->
 
     <!-- ======= Sidebar ======= -->
 
-    <?php include 'sidebar.php' ?>
+    <?php include 'sidebar.php' ;?>
 
-    <!-- End Sidebar-->
+    <!-- End Sidebar--> 
+
     <main id="main" class="main">
 
-        <div class="pagetitle mb-4">
-            <h1>Edit Users</h1>
+        <div class="pagetitle">
+            <h1>Branches</h1>
         </div><!-- End Page Title -->
+        <div class="text-end">
+            <a class="btn btn-primary mb-3 mt-2 " href="addbranch.php">ADD BRANCH</a>
+        </div>
+        <div>
+            <table class="table table-striped table-bordered">
 
-        <div class="card ">
-            <div class="card-body mt-4">
-              
+                <tr>
+                    <th class="text-center ">S.NO</th>
+                    <th class="text-center ">Name</th>
+                   
+                    <th class="text-center ">Delete</th>
+                    <th class="text-center ">Edit</th>
+                </tr>
+                <?php
+                if ($count > 0) {
 
-              
-              <form method="POST" action="">
-                <div class="row mb-3">
-                  <label for="code" class="col-sm-2 col-form-label">Code:</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control w-75" id="code" name="code" value="<?php echo $row['code'] ;?>">
-                  </div>
-                </div>
-                <div class="row mb-3">
-                   <label for="pname" class="col-sm-2 col-form-label">Product Name:</label>
-                   <div class="col-sm-10">
-                    <input type="text" class="form-control w-75" id="pname" name="pname" value="<?php echo $row['product_name'] ;?>">
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="quantity" class="col-sm-2 col-form-label">Quantity:</label>
-                   <div class="col-sm-10">
-                    <input type="text" class="form-control w-75" id="quantity" name="quantity" value="<?php echo $row['quantity'] ;?>">
-                  </div>
-                </div>
-               
-                
-                
-                <div class="text-center">
-                <input type="submit" value="submit" name="submit_btn" class="btn btn-primary mt-3" />
-                  
-                </div>
-              </form><!-- End Horizontal Form -->
+                    for ($i = 0; $i < $count; $i++) {
+                        $row = mysqli_fetch_assoc($result);
 
-            </div>
-          </div>
-
-
+                        ?>
+                        <tr>
+                            
+                            </td>
+                            <td class="text-center ">
+                                <?php echo $i; ?>
+                            </td>
+                            <td class="text-center ">
+                                <?php echo $row['branch_name']; ?>
+                            </td>
+                            <td class="text-center ">
+                                <a class="" href="branch.php?ID=<?php echo $row['ID'] ?>" >
+                                    <i class="bi bi-trash3 " style="font-size:25px;"></i>
+                                   
+                                </a>
+                            </td>
+                            <td class="text-center">
+                            <a class="" href="editbranch.php?ID=<?php echo $row['ID'] ?>" >
+                                    <i class="bi bi-pencil-square " style="font-size:25px;"></i>
+                                   
+                                </a>
+                            </td>
+                        </tr>
+                    <?php }
+                } else {
+                    echo "no entries found";
+                } ?>
+            </table>
+        </div>
 
 
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
 
-    <?php include 'footer.php'; ?>
+    <?php include 'footer.php' ?>
 
     <!-- End Footer -->
 

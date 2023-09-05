@@ -114,6 +114,12 @@
       <span class="text-white">Intend List</span>
     </a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="branch.php"  style="background-color:#402424;">
+    <i class="bi bi-house" style="font-size:20px;"></i>
+      <span class="text-white">Branch</span>
+    </a>
+  </li>
 
   <!--<li class="nav-item">
     <a class="nav-link collapsed" href=""  style="background-color:#402424">
