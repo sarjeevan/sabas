@@ -127,7 +127,7 @@
 
 
 
-    <div class="modal" id="basicModal" tabindex="-1">
+    div class="modal" id="basicModal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
 
@@ -140,7 +140,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div><
 
     <div class="card w-75 ">
       <div class="card-body mt-3 ">

@@ -93,7 +93,7 @@
 
             <tr>
               <thead style="position: sticky;top:0;margin-top:2px;" class="thead-dark">
-                <th class="text-center bg-dark text-white ">From</th>
+                <th class="text-center bg-dark text-white ">Intend_ID</th>
                 <th class="text-center bg-dark text-white ">Created_Date</th>
                 <th class="text-center bg-dark text-white ">Created_By</th>
 
@@ -111,7 +111,7 @@
                 ?>
                 <tr>
                   <td class="text-center ">
-                    <?php echo $row['branch']; ?>
+                  <?php echo $row['ID']; ?>
                   </td>
                   <td class="text-center ">
                     <?php echo $row['created_date']; ?>

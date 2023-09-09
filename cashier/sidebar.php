@@ -94,7 +94,7 @@
  
   <!--<li class="nav-heading">Pages</li>-->
 
-  <li class="nav-item">
+  <!--<li class="nav-item">
     <a class="nav-link collapsed" href="intendhistory.php"  style="background-color:#402424;">
     <i class="bi bi-arrow-left-right" style="font-size:15px;"></i>
       <span class="text-white">Intend History</span>

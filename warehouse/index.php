@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+<?php include '../common/db.config.php'; ?>
 
 <head>
   <meta charset="utf-8">
@@ -12,6 +12,7 @@
 
   <!-- Favicons -->
   <link href="../assets/img/SABAS Round.png" rel="icon">
+  <!--<link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -39,8 +40,27 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+<style>
+   .header1 {
+            position: sticky;
+            top:0;
+        }
+</style>
 
 <body>
+  <?php
+
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+  $sql = "SELECT * FROM intend";
+
+  $result = mysqli_query($conn, $sql);
+
+  $count = mysqli_num_rows($result);
+
+
+
+  ?>
 
   <!-- ======= Header ======= -->
 
@@ -57,75 +77,68 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Warehouse</h1>
+      <h1>Intend List</h1><br>
+
+
     </div><!-- End Page Title -->
+    <!--<div class="text-end pb-3">
+      <a href="addintend.php" class="btn btn-primary text-white"><i class="bi bi-plus"></i>Add Intend</a>
 
-    <!-- End Sales Card -->
-   <!-- <div class="pagetitle">
-      <h1>Paramathi Road:</h1>
+
     </div>-->
-    <table class="table table-striped">
-      <tr>
-        <th>Order ID</th>
-        <th>Date</th>
-        <th>From</th>
-        <th>Status</th>
-        <th>View</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>11.08.2023</td>
-        <td>Paramathi Road</td>
-        <td>Placed</td>
-        <td><a href="viewpage.php" class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424"><!--<i class="bi bi-eye"></i>-->View</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>11.08.2023</td>
-        <td>Mohanur Road</td>
-        <td>Placed</td>
-        <td><a href="viewpage.php" class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424"><!--<i class="bi bi-eye"></i>-->View</th>
-      </tr>
-    </table>
+    <div class="card  ">
+      <div class="card-body mt-3 mb-1">
+        <div class="overflow-auto " style="height:370px;">
+          <table class="table table-striped table-bordered">
+
+            <tr>
+              <thead style="position: sticky;top:0;margin-top:2px;" class="thead-dark">
+                <th class="text-center bg-dark text-white ">Intend_ID</th>
+                <th class="text-center bg-dark text-white ">Created_Date</th>
+                <th class="text-center bg-dark text-white ">Created_By</th>
+
+                <th class="text-center bg-dark text-white ">Status</th>
+                <th class="text-center bg-dark text-white "></th>
+              </thead>
+            </tr>
+            <?php
+
+            if ($count > 0) {
+
+              for ($i = 0; $i < $count; $i++) {
+                $row = mysqli_fetch_assoc($result);
+
+                ?>
+                <tr>
+                  <td class="text-center ">
+                    <?php echo $row['ID']; ?>
+                  </td>
+                  <td class="text-center ">
+                    <?php echo $row['created_date']; ?>
+                  </td>
+                  <td class="text-center ">
+                    <?php echo $row['created_by']; ?>
+                  </td>
+                  <td class="text-center ">
+                    <?php echo $row['status']; ?>
+                  </td>
+                  <td class="text-center">
+
+                    <a class="btn btn-dark" href="viewintend.php?ID=<?php echo $row['ID'] ?>">view</a>
+                  </td>
 
 
-    <!-- Revenue Card -->
-    <!-- End Revenue Card -->
+                </tr>
+              <?php }
+            } else {
+              echo "no entries found";
+            } ?>
+          </table>
+        </div>
 
-    <!-- Customers Card -->
-    <!-- End Customers Card -->
-
-    <!-- Reports -->
-    <!-- End Reports -->
-
-    <!-- Recent Sales -->
-    <!-- End Recent Sales -->
-
-    <!-- Top Selling -->
-    <!-- End Top Selling -->
-
+      </div>
     </div>
-    </div><!-- End Left side columns -->
 
-    <!-- Right side columns -->
-    <!--<div class="col-lg-4">-->
-
-    <!-- Recent Activity -->
-    <!-- End Recent Activity -->
-
-    <!-- Budget Report -->
-    <!-- End Budget Report -->
-
-    <!-- Website Traffic -->
-    <!-- End Website Traffic -->
-
-    <!-- News & Updates Traffic -->
-    <!-- End News & Updates -->
-
-    </div><!-- End Right side columns -->
-
-    </div>
-    </section>
 
   </main><!-- End #main -->
 

@@ -52,6 +52,7 @@ if (isset($_SESSION['usertype'])) {
                 $_SESSION['display_name']=$row['display_name'];
                 $_SESSION['branch']=$row['branch'];
                 $_SESSION['usertype'] = $row['usertype'];
+                $_SESSION['ID']= $row['ID'];
 
 
 

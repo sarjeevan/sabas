@@ -44,10 +44,18 @@
   <?php
   $id = $_GET['ID'];
   $conn = mysqli_connect($servername, $username, $password, $dbname);
- // $sql = "SELECT * FROM intend_items WHERE intend_id=$id ";
-  $sql="SELECT products.product_name,intend_items.product_quantity
+  // $sql = "SELECT * FROM intend_items WHERE intend_id=$id ";
+  $sql = "SELECT products.product_name,intend_items.product_quantity
   FROM intend_items LEFT JOIN products ON intend_items.product_id=products.ID WHERE intend_items.intend_id=$id;";
-  
+
+
+  $sql1 = "SELECT status FROM intend WHERE ID=$id ";
+
+  $result1 = mysqli_query($conn, $sql1);
+
+  $row1 = mysqli_fetch_assoc($result1);
+  $status = $row1['status'];
+
   $result = mysqli_query($conn, $sql);
 
   $count = mysqli_num_rows($result);
@@ -100,7 +108,7 @@
               <?php echo $i; ?>
             </td>
             <td class="text-center ">
-            <?php echo $row['product_name']; ?>
+              <?php echo $row['product_name']; ?>
             </td>
             <td class="text-center ">
               <?php echo $row['product_quantity']; ?>
@@ -115,43 +123,36 @@
       } ?>
     </table>
 
-    <!-- Revenue Card -->
-    <!-- End Revenue Card -->
+    <div class="text-end">
 
-    <!-- Customers Card -->
-    <!-- End Customers Card -->
-
-    <!-- Reports -->
-    <!-- End Reports -->
-
-    <!-- Recent Sales -->
-    <!-- End Recent Sales -->
-
-    <!-- Top Selling -->
-    <!-- End Top Selling -->
-
+      <a href="receive.php?ID=<?php echo $id; ?>" class="btn text-white d-none" id="receive"
+        style="background-color:#402424">Receive</a>
+        <a href="edit.php?ID=<?php echo $id; ?>" class="btn text-white d-none" id="edit"
+        style="background-color:#402424">edit</a>
     </div>
-    </div><!-- End Left side columns -->
+    <script>
 
-    <!-- Right side columns -->
-    <!--<div class="col-lg-4">-->
+      var id = "<?php echo $id; ?>";
+      var status1 = "<?php echo $status; ?>";
+      var user_id = "<?php echo $_SESSION['ID']; ?>";
 
-    <!-- Recent Activity -->
-    <!-- End Recent Activity -->
+      if (status1 == 'deliver') {
+        document.getElementById('receive').classList.remove("d-none");
 
-    <!-- Budget Report -->
-    <!-- End Budget Report -->
 
-    <!-- Website Traffic -->
-    <!-- End Website Traffic -->
 
-    <!-- News & Updates Traffic -->
-    <!-- End News & Updates -->
+      }
+      if (status1 == 'process') {
+        document.getElementById('edit').classList.remove("d-none");
 
-    </div><!-- End Right side columns -->
 
-    </div>
-    </section>
+
+      }
+      
+
+      
+      
+    </script>
 
   </main><!-- End #main -->
 

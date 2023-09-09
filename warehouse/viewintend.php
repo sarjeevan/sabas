@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+<?php include '../common/db.config.php'; ?>
 
 <head>
   <meta charset="utf-8">
@@ -41,7 +41,6 @@
 </head>
 
 <body>
-
   <!-- ======= Header ======= -->
 
   <?php include 'header.php' ?>
@@ -53,79 +52,127 @@
   <?php include 'sidebar.php' ?>
 
   <!-- End Sidebar-->
+  <?php
+  $id = $_GET['ID'];
+  //$status = $_GET['status'];
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+  // $sql = "SELECT * FROM intend_items WHERE intend_id=$id ";
+  $sql = "SELECT products.product_name,intend_items.product_quantity
+  FROM intend_items LEFT JOIN products ON intend_items.product_id=products.ID WHERE intend_items.intend_id=$id;";
+  
+  $sql1="SELECT status FROM intend WHERE ID=$id ";
+
+  $result1=mysqli_query($conn,$sql1);
+
+  $row1 = mysqli_fetch_assoc($result1);
+  $status=$row1['status'];
+
+  $result = mysqli_query($conn, $sql);
+
+  $count = mysqli_num_rows($result);
+
+
+
+  ?>
+
+  
 
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Warehouse</h1>
+      <h1>Intend Items </h1>
     </div><!-- End Page Title -->
-
-    <!-- End Sales Card -->
-    <div class="pagetitle">
-      <h1>Paramathi Road:</h1>
-    </div>
+    
+    
     <table class="table table-striped">
       <tr>
-        <th>Order ID</th>
-        <th>Date</th>
-        <th>From</th>
-        <th>Status</th>
-        <th>View</th>
+        <th class="text-center ">S No</th>
+        <th class="text-center ">Product</th>
+        <th class="text-center ">Quantity</th>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>11.08.2023</td>
-        <td>Paramathi Road</td>
-        <td>Placed</td>
-        <td><a href="viewpage.php" class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424"><!--<i class="bi bi-eye"></i>-->View</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>11.08.2023</td>
-        <td>Mohanur Road</td>
-        <td>Placed</td>
-        <td><a href="viewpage.php" class="btn text-white pt-0 pb-0 text-end" style="background-color:#402424"><!--<i class="bi bi-eye"></i>-->View</th>
-      </tr>
+      <?php
+
+      if ($count > 0) {
+
+        for ($i = 0; $i < $count; $i++) {
+          $row = mysqli_fetch_assoc($result);
+
+          ?>
+          <tr>
+            <td class="text-center ">
+              <?php echo $i; ?>
+            </td>
+            <td class="text-center ">
+              <?php echo $row['product_name']; ?>
+            </td>
+            <td class="text-center ">
+              <?php echo $row['product_quantity']; ?>
+            </td>
+
+
+
+          </tr>
+        <?php }
+      } else {
+        echo "no intend products found!!!";
+      } ?>
     </table>
-
-
-    <!-- Revenue Card -->
-    <!-- End Revenue Card -->
-
-    <!-- Customers Card -->
-    <!-- End Customers Card -->
-
-    <!-- Reports -->
-    <!-- End Reports -->
-
-    <!-- Recent Sales -->
-    <!-- End Recent Sales -->
-
-    <!-- Top Selling -->
-    <!-- End Top Selling -->
-
+    <div class="text-end">
+      <a href="javascript:void(0);" onclick="change_status('process')" class="btn text-white "  id="process" style="background-color:#402424">Process</a>
+      <a href="deliver.php?ID=<?php echo $id; ?>"  class="btn text-white "  id="deliver" style="background-color:#402424">Deliver</a>
     </div>
-    </div><!-- End Left side columns -->
 
-    <!-- Right side columns -->
-    <!--<div class="col-lg-4">-->
 
-    <!-- Recent Activity -->
-    <!-- End Recent Activity -->
+    <script>
+      
+      var id = "<?php echo $id; ?>";
+      var status1 = "<?php echo $status; ?>";
+      var user_id="<?php echo $_SESSION['ID']; ?>";
+      
+      if(status1=='new'){
+       document.getElementById('deliver').classList.add("d-none");
 
-    <!-- Budget Report -->
-    <!-- End Budget Report -->
 
-    <!-- Website Traffic -->
-    <!-- End Website Traffic -->
 
-    <!-- News & Updates Traffic -->
-    <!-- End News & Updates -->
+      }
+      if(status1=='process'){
+       document.getElementById('process').classList.add("d-none");
+      }
+      if(status1=='deliver'){
+       document.getElementById('process').classList.add("d-none");
+       document.getElementById('deliver').classList.add("d-none");
+      }
+      
+      
+     
+      function change_status(status) {
+        var status = {
+          id: id,
+          status: status,
+          user_id:user_id
+        }
 
-    </div><!-- End Right side columns -->
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function (data) {
+          console.log(this.responseText);
+          alert(this.responseText);
+          location.reload();
 
-    </div>
-    </section>
+
+        }
+       xhttp.onerror = function(error){
+        console.log('error',error);
+       }
+
+        xhttp.open("POST", "api/changestatus.php", true);
+        xhttp.setRequestHeader("Content-type", "application/json");
+
+
+
+        xhttp.send(JSON.stringify(status));
+
+      }
+    </script>
 
   </main><!-- End #main -->
 
