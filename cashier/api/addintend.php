@@ -31,17 +31,17 @@ for ($i = 0; $i < $a; $i++) {
     $v = json_decode($b);
     $productId = $v->productId;
     $quantity = (int) $v->quantity;
-
-
-    $sql1 = "INSERT INTO `intend_items` (`intend_id`,`product_id`,`product_quantity`) 
+    
+   $sql1 = "INSERT INTO `intend_items` (`intend_id`,`product_id`,`product_quantity`) 
         VALUES ('$indentid','$productId','$quantity')";
     if (mysqli_query($conn, $sql1)) {
         $response->result= "Success";
+        // echo "succ-intend items";
      
 
     } else {
         $response->result= "Error in inserting intend_items table";
-        
+         //echo $sql1;
     }
 
 }

@@ -8,6 +8,7 @@ if (isset($_SESSION['usertype'])) {
     }
 }
 ?>
+<?php include 'common/db.config.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,10 +26,7 @@ if (isset($_SESSION['usertype'])) {
     <?php
     $err;
     if (isset($_GET['submit'])) {
-        $servername = 'localhost';
-        $username = 'root';
-        $password = '';
-        $dbname = 'sabas';
+        
         $user = $_GET['username'];
         $pass = $_GET['password'];
         //echo $pass;

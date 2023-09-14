@@ -127,7 +127,7 @@
 
       <a href="receive.php?ID=<?php echo $id; ?>" class="btn text-white d-none" id="receive"
         style="background-color:#402424">Receive</a>
-        <a href="edit.php?ID=<?php echo $id; ?>" class="btn text-white d-none" id="edit"
+        <a href="editintend.php?ID=<?php echo $id; ?>" class="btn text-white d-none" id="edit"
         style="background-color:#402424">edit</a>
     </div>
     <script>

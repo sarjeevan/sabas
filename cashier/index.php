@@ -52,7 +52,7 @@
 
   $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-  $sql = "SELECT * FROM intend";
+  $sql = "SELECT * FROM intend ORDER BY ID DESC";
 
   $result = mysqli_query($conn, $sql);
 

@@ -88,7 +88,7 @@
 
     #innerdiv {
       height: 400px;
-      width:
+     
     }
 
     #add-btn {
@@ -107,7 +107,8 @@
   <!-- End Sidebar-->
 
 
-  <?php $user = $_SESSION['display_name'];
+  <?php
+  $user = $_SESSION['display_name'];
   $branch = $_SESSION['branch'];
   $date = date("Y-m-d");
 
@@ -127,7 +128,7 @@
 
 
 
-    div class="modal" id="basicModal" tabindex="-1">
+    <div class="modal" id="basicModal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
 
@@ -140,7 +141,7 @@
           </div>
         </div>
       </div>
-    </div><
+    </div>
 
     <div class="card w-75 ">
       <div class="card-body mt-3 ">
@@ -151,7 +152,7 @@
             Product: <input id="product" type="text" name="product" placeholder="Product">
 
             Quantity:<input type="number" id="quantity" placeholder="Quantity"
-              title="Type in the required quantity"></input>
+              title="Type in the required quantity">
             <input type="hidden" id="product_id" value="" />
 
             <button class="btn  btn-dark text-white " id="add-btn" onclick="addrow(this)">Add</button>
@@ -261,19 +262,20 @@
         clear();
       }
       function load() {
+        
         senddata(indent);
       }
 
       /* Submit data to server */
       function senddata(indent) {
-        if(indent.items.length==0){
+        if (indent.items.length == 0) {
           alert("add products and its quantity");
           return;
         }
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function (data) {
           //alert(this.responseText);
-         
+          
           var res = JSON.parse(this.responseText);
           console.log(res);
           $("#basicModal").modal('hide');
@@ -281,7 +283,7 @@
 
             document.getElementById('modalbody').innerHTML = res.result;
             $("#basicModal").modal('show');
-          }else{
+          } else {
             document.getElementById('modalbody').innerHTML = res.result;
             $("#basicModal").modal('show');
           }
@@ -475,7 +477,7 @@
 
   <?php include 'footer.php' ?>
 
-  <!-- End Footer --> 
+  <!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
