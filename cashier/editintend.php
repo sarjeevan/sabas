@@ -190,7 +190,7 @@ ob_start();
                         Product: <input id="product" type="text" name="product" placeholder="Product">
 
                         Quantity:<input type="number" id="quantity" placeholder="Quantity"
-                            title="Type in the required quantity">
+                            title="Type in the required quantity" autocomplete="off">
                         <input type="hidden" id="product_id" value="" />
 
                         <button class="btn  btn-dark text-white " id="add-btn" onclick="addrow(this)">Add</button>
@@ -342,7 +342,7 @@ ob_start();
                 cell2.innerHTML = product;
 
                 cell3.innerHTML = quantity;
-                cell4.innerHTML = "<a onclick='deleterow(this)' class='' href=''>   <i class='bi bi-trash3' style='font-size:25px;'></i></a>";
+                cell4.innerHTML = "<a onclick='deleterow(this)' class=''>   <i class='bi bi-trash3' style='font-size:25px;'></i></a>";
                 // cell2.style.text-align = "center";
 
 
